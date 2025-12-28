@@ -1,3 +1,8 @@
+---
+layout: page
+title: Home
+permalink: /
+---
 Welcome to my website!
 # Sangyeon Cho
 ## News
