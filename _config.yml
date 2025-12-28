@@ -3,7 +3,7 @@ email: csymhph@snu.ac.kr
 description: > # Personal academic homepage
 theme: minima
 # baseurl: ""
-# url: "https:"
+# url: "https://sangyeoncho.me"
 name: Sangyeon Cho
 job: Master's Student
 location: Seoul, Repulic of Korea (ROK)
@@ -15,6 +15,5 @@ markdown: kramdown
 #   - jekyll-include-cache
 
 header_pages:
-  - index.md
   - publications.md
   - hobbies.md
