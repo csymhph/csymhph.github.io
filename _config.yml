@@ -1,3 +1,15 @@
-title: Sangyeon Cho's personal website
-description: Personal academic homepage
+title: Sangyeon Cho
+email: csymhph@snu.ac.kr
+description: > # Personal academic homepage
 theme: minima
+# baseurl: ""
+# url: "https:"
+name: Sangyeon Cho
+job: Master's Student
+location: Seoul, Repulic of Korea (ROK)
+github_username: csymhph
+# Build Settings
+markdown: kramdown
+# remote_theme: "mmistakes/minimal-mistakes"
+# plugins:
+#   - jekyll-include-cache
