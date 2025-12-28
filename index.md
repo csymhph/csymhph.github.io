@@ -1,6 +1,4 @@
-# Sangyeon Cho
-
-Welcome to my personal website
+Welcome to my website!
 
 ## News
 - (2025) Website created
