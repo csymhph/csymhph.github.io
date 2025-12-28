@@ -1,17 +1,17 @@
 ---
 layout: page
-title: Home
+title: Sangyeon Cho
 permalink: /
 ---
 Welcome to my website!
-# Sangyeon Cho
-## News
+ 
+# News
 - (2025) Website created
 
-## Research Interests
+# Research Interests
 - Causal Inference
 - Conformal Prediction
 - Time Series Analysis in Economics
 
-## Contact
+# Contact
 csymhph@snu.ac.kr / csymhph@gmail.com
