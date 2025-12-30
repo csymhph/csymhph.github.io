@@ -3,9 +3,6 @@ layout: page
 title: Blog
 permalink: /blog/
 ---
-
-# Blog
-
 Here I keep track of what I study and work on.
 
 <ul>
