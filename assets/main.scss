@@ -63,3 +63,11 @@
   font-size: 0.74rem;
   color: #555;
 }
+
+/* --- widen layout (override minima) --- */
+
+.wrapper {
+  max-width: 1100px;   /* 원하는 폭 */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
