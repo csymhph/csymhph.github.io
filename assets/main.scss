@@ -1,0 +1,46 @@
+---
+---
+
+@import "minima";
+
+/* --- Blog post list custom style --- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.post-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-date {
+  font-size: 0.9rem;
+  color: #777;
+  min-width: 7rem;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.post-title {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.post-tags {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #999;
+}
