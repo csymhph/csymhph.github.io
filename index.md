@@ -20,12 +20,12 @@ I am a master's student at the [Graduate School of Data Science (GSDS)](https://
 B.A. in Economics, Seoul National University. (2018-2024)
  
 # News
-- (2025) Website created
+- (2025) I opened my website!
 
 # Research Interests
 - Causal Inference
 - Conformal Prediction
-- Time Series Analysis in Economics
+- Time Series Causal Inference
 
 # Contact
 csymhph@snu.ac.kr / csymhph@gmail.com

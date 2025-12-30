@@ -17,3 +17,4 @@ markdown: kramdown
 header_pages:
   - publications.md
   - hobbies.md
+  - blog.md
