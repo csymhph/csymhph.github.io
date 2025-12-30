@@ -3,7 +3,7 @@
 
 @import "minima";
 
-/* --- Blog list: refined style --- */
+/* --- Blog list refined v2 --- */
 
 .post-list {
   list-style: none;
@@ -13,47 +13,51 @@
 
 .post-item {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  column-gap: 1.5rem;
-  align-items: baseline;
+  grid-template-columns: 105px 1fr auto;
+  column-gap: 1.25rem;
+  align-items: center;
   padding: 0.45rem 0.6rem;
-  border-radius: 0.4rem;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  border-radius: 0.45rem;
+  transition: background-color 0.12s ease, transform 0.12s ease;
+}
+
+.post-item + .post-item {
+  margin-top: 0.2rem;
 }
 
 .post-item:hover {
-  background-color: #f7f8fa;
-  transform: translateY(-1px);
+  background-color: #f8fafc;
 }
 
 .post-date {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: #999;
-  white-space: nowrap;
 }
 
 .post-title {
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 600;
-  text-decoration: none;
-  color: #1f2933; /* 거의 검은색에 가까운 진한 회색 */
 }
 
-.post-title:hover {
+.post-title a {
+  color: #1f2933;
+  text-decoration: none;
+}
+
+.post-title a:hover {
   color: #0057b7;
   text-decoration: underline;
 }
 
 .post-tags {
   display: flex;
-  gap: 0.35rem;
-  justify-content: flex-end;
+  gap: 0.4rem;
 }
 
 .post-tags span {
-  background: #f1f3f5;
-  padding: 2px 9px;
+  background: #eef1f4;
+  padding: 3px 9px;
   border-radius: 999px;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: #666;
 }
