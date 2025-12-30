@@ -17,8 +17,10 @@ Here I keep track of what I study and work on.
       {% if post.categories %}
         <span class="post-tags">
           {% for cat in post.categories %}
-            #{{ cat }}{% unless forloop.last %} {% endunless %}
+            <span>#{{ cat }}</span>
           {% endfor %}
+        </span>
+      {% endif %}
         </span>
       {% endif %}
     </li>
