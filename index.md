@@ -21,6 +21,7 @@ B.A. in Economics, Seoul National University. (2018-2024)
  
 # News
 - (2025) I opened my website!
+- 안녕하세요.
 
 # Research Interests
 - Causal Inference
