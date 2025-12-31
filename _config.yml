@@ -13,6 +13,7 @@ markdown: kramdown
 # remote_theme: "mmistakes/minimal-mistakes"
 # plugins:
 #   - jekyll-include-cache
+permalink: pretty
 
 header_pages:
   - publications.md
