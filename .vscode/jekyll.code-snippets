@@ -29,8 +29,6 @@
 		  "",
 		  "{% include mathjax.html %}",
 		  "",
-		  "## Overview",
-		  "",
 		  "$0"
 		],
 		"description": "Create a new Jekyll blog post with mathjax"

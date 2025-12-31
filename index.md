@@ -21,12 +21,15 @@ B.A. in Economics, Seoul National University. (2018-2024)
  
 # News
 - (2025) I opened my website!
-- 안녕하세요.
 
 # Research Interests
 - Causal Inference
 - Conformal Prediction
 - Time Series Causal Inference
+
+# Projects Participating/ed
+- Metabolomic Big Data Analysis (MFDS, 2025)
+- Advancing Credit Decision Making (Afinit, 2026-2026)
 
 # Contact
 csymhph@snu.ac.kr / csymhph@gmail.com
