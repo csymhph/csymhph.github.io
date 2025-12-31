@@ -24,6 +24,7 @@
 		  "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
 		  "categories: [$2]",
 		  "tags: [$3]",
+		  "# don't forget to modify the updated time! (Snippet shortcut: option + s)",
 		  "---",
 		  "",
 		  "{% include mathjax.html %}",
