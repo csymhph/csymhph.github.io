@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+SOURCE_PATH="${REPO_ROOT}/tools/macos/BlogGuiLauncher.swift"
+PLIST_TEMPLATE="${REPO_ROOT}/tools/macos/BlogGuiLauncher-Info.plist"
+LAUNCHER_PATH="${REPO_ROOT}/scripts/open-blog-gui"
+USER_NAME="$(/usr/bin/id -un)"
+USER_DIRECTORY="$(/usr/bin/dscl . -read "/Users/${USER_NAME}" NFSHomeDirectory | /usr/bin/awk '{print $2}')"
+APPLICATIONS_DIR="${BLOG_GUI_APPLICATIONS_DIR:-${USER_DIRECTORY}/Applications}"
+APP_NAME="Sangyeon Cho Writing Studio.app"
+TARGET_APP="${APPLICATIONS_DIR}/${APP_NAME}"
+BUILD_DIR="$(mktemp -d)"
+BUILT_APP="${BUILD_DIR}/${APP_NAME}"
+CONTENTS_DIR="${BUILT_APP}/Contents"
+MACOS_DIR="${CONTENTS_DIR}/MacOS"
+
+cleanup() {
+  /bin/rm -rf "${BUILD_DIR}"
+}
+trap cleanup EXIT
+
+/bin/mkdir -p "${MACOS_DIR}"
+/usr/bin/xcrun swiftc "${SOURCE_PATH}" -framework AppKit -o "${MACOS_DIR}/BlogGuiLauncher"
+/usr/bin/ditto "${PLIST_TEMPLATE}" "${CONTENTS_DIR}/Info.plist"
+/usr/libexec/PlistBuddy -c "Add :BlogGuiLauncherPath string ${LAUNCHER_PATH}" "${CONTENTS_DIR}/Info.plist"
+/usr/bin/codesign --force --deep --sign - "${BUILT_APP}"
+
+/bin/mkdir -p "${APPLICATIONS_DIR}"
+if [[ -e "${TARGET_APP}" ]]; then
+  backup_path="${TARGET_APP}.backup.$(/bin/date +%Y%m%d-%H%M%S)"
+  /bin/mv "${TARGET_APP}" "${backup_path}"
+  echo "Existing launcher moved to ${backup_path}"
+fi
+/usr/bin/ditto "${BUILT_APP}" "${TARGET_APP}"
+
+LSREGISTER="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
+"${LSREGISTER}" -f "${TARGET_APP}"
+
+echo "Installed ${TARGET_APP}"
+echo "Registered csymhph-blog://open"

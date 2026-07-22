@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+cd "${REPO_ROOT}"
+exec /opt/anaconda3/bin/conda run -n vibe_csymhph_github_io \
+  streamlit run tools/blog_gui/app.py \
+  --client.toolbarMode minimal \
+  --logger.hideWelcomeMessage true \
+  --server.showEmailPrompt false \
+  --browser.gatherUsageStats false \
+  "$@"

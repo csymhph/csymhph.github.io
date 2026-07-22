@@ -1,0 +1,8 @@
+AGENTS.md
+EDITING_DIRECTION.md
+progress.md
+.DS_Store
+_drafts/
+.streamlit/
+__pycache__/
+*.py[cod]

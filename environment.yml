@@ -1,0 +1,9 @@
+name: vibe_csymhph_github_io
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - streamlit
+  - pip
+  - pip:
+      - streamlit-crepe==0.1.5
