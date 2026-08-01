@@ -126,11 +126,22 @@ permalink: /
         My interests also extend to machine learning, economics, and philosophy.
         I welcome conversations with people from different backgrounds.
       </p>
-      <dl class="fact-list">
-        <div><dt>Education</dt><dd>B.A. in Economics, Seoul National University, 2018–2024</dd></div>
-        <div><dt>News</dt><dd>Opened this website in 2025</dd></div>
-        <div><dt>Contact</dt><dd><a href="mailto:csymhph@snu.ac.kr">csymhph@snu.ac.kr</a> · <a href="mailto:csymhph@gmail.com">csymhph@gmail.com</a></dd></div>
-      </dl>
+      <div class="background-panels">
+        <section class="background-panel" aria-labelledby="education-title">
+          <h3 id="education-title">Education</h3>
+          <p>B.A. in Economics, Seoul National University, 2018–2024</p>
+        </section>
+        <section class="background-panel" aria-labelledby="news-title">
+          <h3 id="news-title">News</h3>
+          <ul class="news-list">
+            <li><time datetime="2025">2025</time><span>Opened this website</span></li>
+          </ul>
+        </section>
+      </div>
+      <div class="contact-fact">
+        <span>Contact</span>
+        <p><a href="mailto:csymhph@snu.ac.kr">csymhph@snu.ac.kr</a> · <a href="mailto:csymhph@gmail.com">csymhph@gmail.com</a></p>
+      </div>
     </div>
   </div>
 </section>
