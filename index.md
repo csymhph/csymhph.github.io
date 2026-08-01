@@ -6,16 +6,16 @@ permalink: /
 <section class="intro" aria-labelledby="intro-title">
   <div class="shell intro-grid">
     <div>
-      <p class="eyebrow">Causality · Uncertainty · Time</p>
+      <p class="eyebrow">Causality · Uncertainty · Explanation</p>
       <h1 id="intro-title">Sangyeon Cho</h1>
       <p class="intro-copy">
         Master's student at the
         <a href="https://gsds.snu.ac.kr/"><strong>Graduate School of Data Science, Seoul National University</strong></a>,
         working in the Causality Lab with Professor
         <a href="https://www.sanghacklee.me/"><strong>Sanghack Lee</strong></a>.
-        My research focuses on causal inference, conformal prediction, and
-        time-series causality, with broader interests in machine learning,
-        economics, and philosophy.
+        My work focuses on causal inference, conformal prediction, and
+        explainable AI, with broader interests in machine learning, economics,
+        and philosophy.
       </p>
       <div class="actions" aria-label="Primary contact links">
         <a class="button button-primary" href="mailto:{{ site.email }}">Email me ↗</a>
@@ -46,8 +46,8 @@ permalink: /
   <div class="shell">
     <div class="section-header">
       <div>
-        <p class="section-label">Focus</p>
-        <h2 id="research-title">Research interests</h2>
+        <p class="section-label">Research</p>
+        <h2 id="research-title">Areas of work</h2>
       </div>
     </div>
     <div class="topic-grid">
@@ -68,8 +68,8 @@ permalink: /
       <article class="topic-card">
         <span class="topic-number">03</span>
         <div>
-          <h3>Time-series causality</h3>
-          <p>Studying causal questions when relationships evolve over time.</p>
+          <h3>Explainable AI</h3>
+          <p>Understanding and communicating how models arrive at their predictions.</p>
         </div>
       </article>
     </div>
