@@ -1,12 +1,12 @@
 title: Sangyeon Cho
 email: csymhph@snu.ac.kr
-description: > # Personal academic homepage
+description: Personal academic homepage of Sangyeon Cho, focused on causal inference, conformal prediction, and time-series causality.
 theme: minima
-# baseurl: ""
-# url: "https://sangyeoncho.me"
+url: "https://csymhph.github.io"
+baseurl: ""
 name: Sangyeon Cho
 job: Master's Student
-location: Seoul, Repulic of Korea (ROK)
+location: Seoul, Republic of Korea
 github_username: csymhph
 # Build Settings
 markdown: kramdown
@@ -17,5 +17,5 @@ permalink: pretty
 
 header_pages:
   - publications.md
-  - hobbies.md
   - blog.md
+  - hobbies.md

@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="site-page">
+  <header class="page-head">
+    <div class="shell">
+      {% if page.kicker %}<p class="eyebrow">{{ page.kicker }}</p>{% endif %}
+      <h1>{{ page.title | escape }}</h1>
+      {% if page.summary %}<p class="page-summary">{{ page.summary }}</p>{% endif %}
+    </div>
+  </header>
+  <div class="page-content shell">
+    {{ content }}
+  </div>
+</article>

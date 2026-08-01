@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="article" itemscope itemtype="http://schema.org/BlogPosting">
+  <a class="article-back" href="{{ '/blog/' | relative_url }}">← Back to all posts</a>
+  <header class="article-header">
+    <p class="eyebrow">{% if page.categories and page.categories != empty %}{{ page.categories | first }}{% else %}Writing{% endif %}</p>
+    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="article-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      {% if page.updated %}<span aria-hidden="true"> · </span>Updated {{ page.updated | date: "%B %-d, %Y" }}{% endif %}
+      {% if page.categories and page.categories != empty %}<span aria-hidden="true"> · </span>{{ page.categories | join: " · " }}{% endif %}
+    </p>
+  </header>
+
+  <div class="article-body" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="article-footer">
+    <a href="{{ '/blog/' | relative_url }}">View all writing →</a>
+  </footer>
+</article>
