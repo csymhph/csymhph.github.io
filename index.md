@@ -86,14 +86,14 @@ permalink: /
     </div>
     <ol class="record-list" aria-label="Current and past projects">
       <li class="record-row">
-        <time class="record-date" datetime="2026">2026</time>
+        <span class="record-date">2025–2026</span>
         <div class="record-copy">
           <h3>Advancing Credit Decision Making</h3>
           <p>Afinit</p>
         </div>
       </li>
       <li class="record-row">
-        <time class="record-date" datetime="2025">2025</time>
+        <span class="record-date">2025–2026</span>
         <div class="record-copy">
           <h3>Metabolomic Big Data Analysis</h3>
           <p>Ministry of Food and Drug Safety</p>
