@@ -11,8 +11,11 @@ permalink: /
       <p class="intro-copy">
         Master's student at the
         <a href="https://gsds.snu.ac.kr/"><strong>Graduate School of Data Science, Seoul National University</strong></a>,
-        interested in causal inference, conformal prediction, and time-series
-        causal inference.
+        working in the Causality Lab with Professor
+        <a href="https://www.sanghacklee.me/"><strong>Sanghack Lee</strong></a>.
+        My research focuses on causal inference, conformal prediction, and
+        time-series causality, with broader interests in machine learning,
+        economics, and philosophy.
       </p>
       <div class="actions" aria-label="Primary contact links">
         <a class="button button-primary" href="mailto:{{ site.email }}">Email me ↗</a>
@@ -73,75 +76,91 @@ permalink: /
   </div>
 </section>
 
-<section class="section" aria-labelledby="recent-title">
+<section class="section section-compact" aria-labelledby="work-title">
   <div class="shell">
     <div class="section-header">
       <div>
-        <p class="section-label">Continuously updated</p>
+        <p class="section-label">Work</p>
+        <h2 id="work-title">Selected work</h2>
+      </div>
+    </div>
+    <ol class="record-list" aria-label="Selected projects">
+      <li class="record-row">
+        <time class="record-date" datetime="2026">2026</time>
+        <div class="record-copy">
+          <h3>Advancing Credit Decision Making</h3>
+          <p>Afinit</p>
+        </div>
+      </li>
+      <li class="record-row">
+        <time class="record-date" datetime="2025">2025</time>
+        <div class="record-copy">
+          <h3>Metabolomic Big Data Analysis</h3>
+          <p>Ministry of Food and Drug Safety</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-compact" aria-labelledby="news-title">
+  <div class="shell">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Updates</p>
+        <h2 id="news-title">News</h2>
+      </div>
+    </div>
+    <ol class="record-list" aria-label="News">
+      <li class="record-row">
+        <time class="record-date" datetime="2025">2025</time>
+        <div class="record-copy"><p>Opened this website.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-compact" aria-labelledby="recent-title">
+  <div class="shell">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Writing</p>
         <h2 id="recent-title">Recent writing</h2>
       </div>
       <a class="section-link" href="{{ '/blog/' | relative_url }}">View all posts →</a>
     </div>
-
-    <div class="content-grid">
-      {% if site.posts.size > 0 %}
-      <ol class="list" aria-label="Recent posts">
-        {% for post in site.posts limit: 3 %}
-        <li class="post-row">
-          <time class="row-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-          <a class="row-title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-          <span class="row-category">{{ post.categories | join: " · " }}</span>
-        </li>
-        {% endfor %}
-      </ol>
-      {% else %}
-      <p class="quiet-note">Writing will appear here as posts are published.</p>
-      {% endif %}
-
-      <aside class="side-card" aria-labelledby="work-title">
-        <p class="section-label">Selected work</p>
-        <h3 id="work-title">Current and recent projects</h3>
-        <ul class="compact-list">
-          <li><strong>Advancing Credit Decision Making</strong><span>Afinit · 2026</span></li>
-          <li><strong>Metabolomic Big Data Analysis</strong><span>MFDS · 2025</span></li>
-        </ul>
-      </aside>
-    </div>
+    {% if site.posts.size > 0 %}
+    <ol class="list" aria-label="Recent posts">
+      {% for post in site.posts limit: 3 %}
+      <li class="post-row">
+        <time class="row-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        <a class="row-title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <span class="row-category">{{ post.categories | join: " · " }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p class="quiet-note">Writing will appear here as posts are published.</p>
+    {% endif %}
   </div>
 </section>
 
-<section class="section" aria-labelledby="about-title">
-  <div class="shell details-grid">
-    <div>
-      <p class="section-label">Background</p>
-      <h2 id="about-title">Across disciplines</h2>
-    </div>
-    <div class="prose-block">
-      <p>
-        I work with Professor <a href="https://www.sanghacklee.me/">Sanghack Lee</a>
-        in the Causality Lab. Before joining the lab, I majored in Economics at
-        Seoul National University.
-      </p>
-      <p>
-        My interests also extend to machine learning, economics, and philosophy.
-        I welcome conversations with people from different backgrounds.
-      </p>
-      <div class="background-panels">
-        <section class="background-panel" aria-labelledby="education-title">
-          <h3 id="education-title">Education</h3>
-          <p>B.A. in Economics, Seoul National University, 2018–2024</p>
-        </section>
-        <section class="background-panel" aria-labelledby="news-title">
-          <h3 id="news-title">News</h3>
-          <ul class="news-list">
-            <li><time datetime="2025">2025</time><span>Opened this website</span></li>
-          </ul>
-        </section>
-      </div>
-      <div class="contact-fact">
-        <span>Contact</span>
-        <p><a href="mailto:csymhph@snu.ac.kr">csymhph@snu.ac.kr</a> · <a href="mailto:csymhph@gmail.com">csymhph@gmail.com</a></p>
+<section class="section section-compact" aria-labelledby="education-title">
+  <div class="shell">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Training</p>
+        <h2 id="education-title">Education</h2>
       </div>
     </div>
+    <ol class="record-list" aria-label="Education">
+      <li class="record-row">
+        <span class="record-date">2018–2024</span>
+        <div class="record-copy">
+          <h3>B.A. in Economics</h3>
+          <p>Seoul National University</p>
+        </div>
+      </li>
+    </ol>
   </div>
 </section>
