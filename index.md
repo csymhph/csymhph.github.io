@@ -80,11 +80,11 @@ permalink: /
   <div class="shell">
     <div class="section-header">
       <div>
-        <p class="section-label">Work</p>
-        <h2 id="work-title">Selected work</h2>
+        <p class="section-label">Current and past</p>
+        <h2 id="work-title">Projects</h2>
       </div>
     </div>
-    <ol class="record-list" aria-label="Selected projects">
+    <ol class="record-list" aria-label="Current and past projects">
       <li class="record-row">
         <time class="record-date" datetime="2026">2026</time>
         <div class="record-copy">
