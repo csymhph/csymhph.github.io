@@ -28,7 +28,7 @@ summary: Current manuscripts and conference work in causal inference and uncerta
       </div>
     </li>
     <li class="record-row">
-      <span class="record-date">ICML 2026</span>
+      <span class="record-date">ICML 2026 (WS)</span>
       <div class="record-copy">
         <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
         <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight Talk</p>
@@ -36,6 +36,24 @@ summary: Current manuscripts and conference work in causal inference and uncerta
     </li>
   </ol>
   <p class="quiet-note">* Equal contribution. † Corresponding author.</p>
+</section>
+
+<section class="content-section" aria-labelledby="thesis-title">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Thesis</p>
+      <h2 id="thesis-title">Academic thesis</h2>
+    </div>
+  </div>
+  <ol class="record-list" aria-label="Academic thesis">
+    <li class="record-row">
+      <span class="record-date">MDS · 2026</span>
+      <div class="record-copy">
+        <h3>Conformal Prediction for Individual Treatment Effects under Time-Varying Treatment Strategies</h3>
+        <p>Sangyeon Cho · Master of Data Science, Seoul National University · August 2026</p>
+      </div>
+    </li>
+  </ol>
 </section>
 
 <section class="content-section" aria-labelledby="areas-title">
