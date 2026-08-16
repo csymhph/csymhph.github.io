@@ -800,6 +800,27 @@ pre code {
   color: var(--text);
 }
 
+.causal-figure {
+  max-width: 100%;
+  margin: var(--s7) 0;
+}
+
+.causal-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+}
+
+.causal-figure figcaption {
+  margin-top: var(--s3);
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
 .article-body th,
 .article-body td {
   border-color: var(--line);

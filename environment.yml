@@ -4,6 +4,3 @@ channels:
 dependencies:
   - python=3.11
   - streamlit
-  - pip
-  - pip:
-      - streamlit-crepe==0.1.5

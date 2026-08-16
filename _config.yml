@@ -15,6 +15,19 @@ markdown: kramdown
 #   - jekyll-include-cache
 permalink: pretty
 
+# These files remain version-controlled for local authoring and maintenance,
+# but are not part of the published GitHub Pages site.
+exclude:
+  - AGENTS.md
+  - DESIGN_SYSTEM.md
+  - EDITING_DIRECTION.md
+  - MILESTONES.md
+  - blog-gui.command
+  - design-demo
+  - environment.yml
+  - scripts
+  - tools
+
 header_pages:
   - publications.md
   - blog.md

@@ -4,5 +4,11 @@ progress.md
 .DS_Store
 _drafts/
 .streamlit/
+.env
+.env.*
+!.env.example
+drafts/
+notes/
 __pycache__/
 *.py[cod]
+tools/blog_gui/editor_component/frontend/node_modules/

@@ -13,12 +13,13 @@ completion criteria.
 | M1. Design system | Complete | Apple-inspired, accessibility-conscious design rules documented |
 | M2. Multipage visual demo | Complete | Approved navigation, page hierarchy, and light/dark visual direction demonstrated |
 | M3. Local Writing Studio | Complete | Local drafting, editing, publishing, Git sync, and macOS launch flow working |
-| M4. Production Jekyll redesign | Not started | Apply the approved demo direction to the real GitHub Pages site |
+| M4. Production Jekyll redesign | Complete | Production layouts are live; Pages build and desktop/mobile browser checks passed |
+| M4.1. Causal Graph Authoring | In progress | Local implementation and automated tests are complete; browser and release validation remain |
 | M5. Cloud Writing Studio | Deferred | Move authoring to a private Streamlit Community Cloud app for arbitrary-device access |
 | M6. Integrated release and operations | Not started | Connect the production site, cloud editor, publishing flow, and operating documentation |
 
-The public Jekyll site has not yet received the visual redesign. The files under
-`design-demo/` are prototypes, not the production site.
+The public Jekyll site now uses the approved visual system. The files under
+`design-demo/` remain historical prototypes rather than production templates.
 
 ## M0. Project foundation
 
@@ -112,7 +113,7 @@ Long-term role:
 
 ## M4. Production Jekyll redesign
 
-**Status:** Not started
+**Status:** Complete
 
 Objective:
 
@@ -121,22 +122,61 @@ Objective:
 
 Planned work:
 
-- [ ] Capture a production baseline and confirm factual content.
-- [ ] Add semantic design tokens and shared foundations in `assets/main.scss`.
-- [ ] Implement the production header, footer, current-page navigation, and
+- [x] Inventory the production structure and preserve the existing factual content.
+- [x] Add semantic design tokens and shared foundations in `assets/main.scss`.
+- [x] Implement the production header, footer, current-page navigation, and
       light/dark appearance control.
-- [ ] Apply the approved Home, Publications, Blog, Hobbies, and Post hierarchy.
-- [ ] Preserve readable code, math, tables, media, and long-form content at
+- [x] Apply the approved Home, Publications, Blog, Hobbies, and Post hierarchy.
+- [x] Add responsive handling for code, math, tables, media, and long-form content at
       narrow widths.
-- [ ] Validate keyboard access, focus, contrast, reduced motion, 200% zoom, and
+- [x] Validate keyboard access, focus, contrast, reduced motion, 200% zoom, and
       target responsive widths.
-- [ ] Run a local Jekyll build or document why it cannot be run.
+- [x] Run and inspect the GitHub Pages build after the approved commit/push.
 
 Completion criteria:
 
 - Production pages match the approved direction, factual claims remain
   verified, no page requires unintended horizontal scrolling, light and dark
   appearances work, and the Jekyll build succeeds.
+
+## M4.1. Causal Graph Authoring
+
+**Status:** In progress — local implementation and automated verification complete;
+manual browser and release validation pending
+
+Objective:
+
+- Add a causal-graph block to the local Writing Studio while publishing only a
+  static, accessible SVG to the public site.
+
+Delivered locally:
+
+- [x] Replaced the runtime-patched `streamlit-crepe` wrapper with a repository-
+      owned Milkdown/Crepe Streamlit component and checked-in production build.
+- [x] Added Cytoscape.js and edgehandles with directed and bidirected edge
+      creation, node roles, observed/latent state, labels, layout, fit,
+      undo/redo, deletion, required alternative text, and optional captions.
+- [x] Added the v1 JSON validator, safe graph IDs, directed-cycle detection,
+      deterministic fixed-white SVG export, XML escaping, and canonical figure
+      serialization.
+- [x] Added private draft graph storage, atomic draft-to-post promotion,
+      published graph updates, shared-draft protection, and non-destructive
+      orphan handling.
+- [x] Added graph-aware publish bundles so a graph-only update selects its SVG
+      and private JSON source without staging unrelated paths.
+- [x] Added Python and frontend unit coverage and retained build artifacts so
+      launching the Studio does not require npm.
+- [ ] Manually verify cursor insertion, graph re-editing, focus, drag/zoom,
+      light/dark Studio appearance, and narrow-screen behavior in a browser.
+- [ ] After separately approved commits and pushes, verify the GitHub Pages
+      build and a published SVG's alternative text and caption.
+
+Completion criteria:
+
+- A saved draft or published post can create and re-edit a valid graph at the
+  current cursor, failed saves preserve content and selection, publishing
+  promotes JSON/SVG/body atomically, and the public result is a readable static
+  SVG with alternative text and an optional caption.
 
 ## M5. Cloud Writing Studio
 
@@ -182,7 +222,7 @@ Completion criteria:
 
 ## M6. Integrated release and operations
 
-**Status:** Not started; depends on M4 and M5
+**Status:** Not started; depends on M4, M4.1, and M5
 
 Planned work:
 
@@ -204,11 +244,12 @@ Completion criteria:
 
 ## Current recommended sequence
 
-1. Complete M4 when production visual implementation is requested.
-2. Resume M5 when Streamlit account, draft-storage choice, and repository token
+1. Complete M4's separately approved release and browser validation.
+2. Complete M4.1's manual browser pass, then release and validate it separately.
+3. Resume M5 when Streamlit account, draft-storage choice, and repository token
    are ready.
-3. Complete M6 only after both production surfaces have been independently
+4. Complete M6 only after all production surfaces have been independently
    verified.
 
-Avoid combining M4 and M5 into one large unverified release. They can be built
-and tested independently before the final integration.
+Avoid combining M4, M4.1, and M5 into one large unverified release. They can be
+built and tested independently before the final integration.

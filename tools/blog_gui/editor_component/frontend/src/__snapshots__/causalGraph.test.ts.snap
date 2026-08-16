@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`serialization > creates deterministic SVG with a white background and escaped text 1`] = `
+"<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 284 284">
+  <title id="title">처치 "X"와 결과 Y</title>
+  <desc id="desc">Static causal graph. Directed arrows show causal paths; double-headed arrows show bidirected relationships.</desc>
+  <rect width="284" height="284" fill="#ffffff"/>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#24272b"/></marker></defs>
+  <g class="edges" fill="none" stroke="#24272b" stroke-width="2">
+    <line data-edge="e1" x1="72" y1="72" x2="72" y2="212" marker-end="url(#arrow)"/>
+    <text>β &lt; 1</text>
+    <line data-edge="e2" x1="212" y1="72" x2="72" y2="212" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  </g>
+  <g class="nodes">
+    <g data-node="u" stroke-dasharray="7 5"><title>U &lt;latent&gt;</title></g>
+    <g data-node="x"><title>처치 X</title></g>
+    <g data-node="y"><title>Outcome &amp; Y</title></g>
+  </g>
+</svg>
+"
+`;

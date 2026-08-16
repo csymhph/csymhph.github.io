@@ -13,9 +13,36 @@ from typing import Any
 import streamlit as st
 
 if __package__:
+    from .causal_graphs import (
+        GraphStore,
+        GraphValidationError,
+        PublishBundle,
+        canonical_figure,
+        generate_graph_id,
+        publish_bundles,
+    )
     from .rich_editor import themed_markdown_editor
 else:
-    from rich_editor import themed_markdown_editor
+    try:
+        from causal_graphs import (
+            GraphStore,
+            GraphValidationError,
+            PublishBundle,
+            canonical_figure,
+            generate_graph_id,
+            publish_bundles,
+        )
+        from rich_editor import themed_markdown_editor
+    except ModuleNotFoundError:
+        from tools.blog_gui.causal_graphs import (
+            GraphStore,
+            GraphValidationError,
+            PublishBundle,
+            canonical_figure,
+            generate_graph_id,
+            publish_bundles,
+        )
+        from tools.blog_gui.rich_editor import themed_markdown_editor
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -29,6 +56,9 @@ WRITING_MODE_KEY = "blog_gui_writing_mode"
 NEW_DRAFT_VERSION_KEY = "blog_gui_new_draft_version"
 DARK_MODE_KEY = "blog_gui_dark_mode"
 SITE_URL = "https://csymhph.github.io"
+GRAPH_RESPONSE_PREFIX = "blog_gui_graph_response"
+GRAPH_REQUEST_PREFIX = "blog_gui_graph_request"
+GRAPH_ID_PREFIX = "blog_gui_graph_id"
 
 
 POST_TYPE_OPTIONS = ("normal", "math note", "project note")
@@ -40,6 +70,7 @@ EDITOR_FEATURES = {
     "image": False,
     "link": True,
 }
+GRAPH_STORE = GraphStore(ROOT)
 
 
 def hide_streamlit_chrome() -> None:
@@ -362,7 +393,7 @@ def render_page_intro(kicker: str, title: str, description: str) -> None:
 def render_workspace_stats(draft_count: int, post_count: int) -> None:
     changed_count = 0
     try:
-        changed_count = len(changed_post_paths())
+        changed_count = len(changed_publish_bundles())
     except RuntimeError:
         pass
     st.markdown(
@@ -578,6 +609,20 @@ def changed_post_paths() -> list[Path]:
     return paths
 
 
+def changed_relative_paths() -> list[str]:
+    return [status_path(line) for line in git_status_lines()]
+
+
+def changed_publish_bundles() -> list[PublishBundle]:
+    changed = changed_relative_paths()
+    candidates = {path.resolve(): path for path in list_posts()}
+    for raw_path in changed:
+        if raw_path.startswith("_posts/") and raw_path.endswith(".md"):
+            path = (ROOT / raw_path).resolve()
+            candidates.setdefault(path, path)
+    return publish_bundles(ROOT, candidates.values(), changed)
+
+
 def changed_post_labels(paths: list[Path]) -> dict[str, Path]:
     labels: dict[str, Path] = {}
     status_by_path = {status_path(line): line[:2].strip() or "modified" for line in git_status_lines()}
@@ -605,6 +650,14 @@ def commit_selected_posts(paths: list[Path], message: str) -> str:
         raise ValueError("Commit message is required.")
 
     relative_paths = [relative(path) for path in paths]
+    allowed = (
+        re.compile(r"^_posts/[^/]+\.md$"),
+        re.compile(r"^assets/causal-graphs/cg-\d{8}-[a-z0-9]{8}\.svg$"),
+        re.compile(r"^_graph_sources/cg-\d{8}-[a-z0-9]{8}\.json$"),
+    )
+    invalid = [path for path in relative_paths if not any(pattern.fullmatch(path) for pattern in allowed)]
+    if invalid:
+        raise ValueError("Unsupported publish path: " + ", ".join(invalid))
     add_result = run_git(["add", "--", *relative_paths])
     if add_result.returncode != 0:
         raise RuntimeError(add_result.stderr.strip() or "git add failed")
@@ -685,6 +738,7 @@ def validate_metadata(metadata: dict[str, Any]) -> list[str]:
 
 def save_draft(path: Path, metadata: dict[str, Any], body: str, use_math: bool) -> Path:
     DRAFTS_DIR.mkdir(exist_ok=True)
+    GRAPH_STORE.load_for_markdown(body, published=False)
     metadata = {**metadata, "updated": now_text()}
     path.write_text(build_document(metadata, body, use_math), encoding="utf-8")
     return path
@@ -705,6 +759,7 @@ def save_edited_post(path: Path, metadata: dict[str, Any], body: str, use_math: 
     missing = validate_metadata(metadata)
     if missing:
         raise ValueError("Missing required front matter: " + ", ".join(missing))
+    GRAPH_STORE.load_for_markdown(body, published=True)
 
     original_metadata, _ = read_post(path)
     original_title = str(original_metadata.get("title", path.stem)).strip()
@@ -741,8 +796,8 @@ def publish_draft(path: Path, metadata: dict[str, Any], body: str, use_math: boo
 
     POSTS_DIR.mkdir(exist_ok=True)
     metadata = {**metadata, "date": today_text(), "updated": now_text()}
-    post_path.write_text(build_document(metadata, body, use_math), encoding="utf-8")
-    path.unlink()
+    post_text = build_document(metadata, body, use_math)
+    GRAPH_STORE.promote_draft(path, post_path, post_text, body)
     return post_path
 
 
@@ -833,19 +888,69 @@ def selected_post_path(label_to_path: dict[str, Path], key: str) -> Path | None:
     return label_to_path[selected]
 
 
-def markdown_editor(initial_value: str, key: str) -> str:
+def markdown_editor(
+    initial_value: str,
+    key: str,
+    *,
+    document_id: str,
+    graph_enabled: bool,
+    published: bool,
+) -> str:
+    graph_hint = " Causal graphs are available from the same menu." if graph_enabled else ""
     st.caption(
         "Type `/` for blocks. For live display math, type `$$` then Space on an empty line."
+        + graph_hint
     )
-    return themed_markdown_editor(
+    try:
+        graphs = GRAPH_STORE.load_for_markdown(initial_value, published=published) if graph_enabled else []
+    except GraphValidationError as exc:
+        st.error(str(exc))
+        graphs = []
+
+    response_key = f"{GRAPH_RESPONSE_PREFIX}:{key}"
+    request_key = f"{GRAPH_REQUEST_PREFIX}:{key}"
+    graph_id_key = f"{GRAPH_ID_PREFIX}:{key}"
+    if graph_id_key not in st.session_state:
+        st.session_state[graph_id_key] = generate_graph_id()
+    event = themed_markdown_editor(
         default_value=initial_value,
         height=640,
         placeholder="Start writing, or type / for blocks…",
         features=EDITOR_FEATURES,
         throttle_delay=300,
         theme=current_theme(),
+        document_id=document_id,
+        graph_enabled=graph_enabled,
+        graphs=graphs,
+        new_graph_id=st.session_state[graph_id_key],
+        graph_response=st.session_state.get(response_key),
         key=key,
     )
+    event_type = event.get("type")
+    if event_type == "graph_save" and graph_enabled:
+        request_id = str(event.get("request_id", ""))
+        if request_id and request_id != st.session_state.get(request_key):
+            try:
+                graph = GRAPH_STORE.save(event.get("graph", {}), published=published)
+            except (GraphValidationError, OSError) as exc:
+                response = {"request_id": request_id, "ok": False, "error": str(exc)}
+            else:
+                response = {
+                    "request_id": request_id,
+                    "ok": True,
+                    "figure": canonical_figure(graph),
+                    "graph": graph,
+                }
+                st.session_state[graph_id_key] = generate_graph_id()
+            st.session_state[request_key] = request_id
+            st.session_state[response_key] = response
+            st.rerun()
+        return str(event.get("markdown", initial_value))
+
+    if event_type == "content_change":
+        st.session_state.pop(response_key, None)
+        return str(event.get("markdown", initial_value))
+    return initial_value
 
 
 def writing_guide_flow() -> None:
@@ -878,7 +983,7 @@ def new_draft_flow() -> None:
         label_visibility="collapsed",
     )
 
-    with st.expander("Properties", expanded=True):
+    with st.expander("Properties", expanded=False):
         post_type = st.selectbox("Post type", POST_TYPE_OPTIONS, key=f"new_post_type_{version}")
         default_categories, default_math = post_type_defaults(post_type)
         left, middle, right = st.columns([1, 1, 0.55])
@@ -893,7 +998,13 @@ def new_draft_flow() -> None:
         with right:
             use_math = st.checkbox("Math", value=default_math, key=f"new_math_{version}_{post_type}")
 
-    body = markdown_editor("", key=f"new_body_editor_{version}")
+    body = markdown_editor(
+        "",
+        key=f"new_body_editor_{version}",
+        document_id=f"new-draft-{version}",
+        graph_enabled=False,
+        published=False,
+    )
 
     draft_path = draft_path_for_title(title)
     st.caption(f"Will save to `{relative(draft_path)}`")
@@ -949,7 +1060,13 @@ def edit_draft_flow(label_to_path: dict[str, Path]) -> None:
         with right:
             use_math = st.checkbox("Math", value=has_mathjax(body), key=f"math_{path.name}")
 
-    edited_body = markdown_editor(body_without_math, key=f"body_editor_{path.name}")
+    edited_body = markdown_editor(
+        body_without_math,
+        key=f"body_editor_{path.name}",
+        document_id=relative(path),
+        graph_enabled=True,
+        published=False,
+    )
     updated_metadata = metadata_from_inputs(title, categories, tags, date=str(metadata.get("date", today_text())))
     target_draft = draft_path_for_title(title)
     target_post = post_path_for_title(title)
@@ -964,7 +1081,7 @@ def edit_draft_flow(label_to_path: dict[str, Path]) -> None:
         if st.button("Save Draft", type="primary", key=f"save_{path.name}"):
             try:
                 saved_path = save_edited_draft(path, updated_metadata, edited_body, use_math)
-            except FileExistsError as exc:
+            except (FileExistsError, GraphValidationError, OSError) as exc:
                 st.error(str(exc))
             else:
                 set_flash(f"Saved `{relative(saved_path)}`")
@@ -974,18 +1091,28 @@ def edit_draft_flow(label_to_path: dict[str, Path]) -> None:
         if st.button("Publish", key=f"publish_{path.name}"):
             try:
                 post_path = publish_draft(path, updated_metadata, edited_body, use_math)
-            except (FileExistsError, ValueError) as exc:
+            except (FileExistsError, GraphValidationError, OSError, ValueError) as exc:
                 st.error(str(exc))
             else:
                 set_flash(f"Published `{relative(post_path)}`")
                 st.rerun()
 
     with delete_col:
+        delete_graphs, shared_graphs = GRAPH_STORE.draft_graph_delete_summary(path, edited_body)
+        if delete_graphs:
+            st.caption(f"Also deletes {delete_graphs} private draft graph(s).")
+        if shared_graphs:
+            st.caption(f"Keeps {shared_graphs} graph(s) shared by other drafts.")
         confirm_delete = st.checkbox("Confirm delete", key=f"confirm_delete_{path.name}")
         if st.button("Delete Draft", disabled=not confirm_delete, key=f"delete_{path.name}"):
-            path.unlink()
-            set_flash(f"Deleted `{relative(path)}`", "warning")
-            st.rerun()
+            try:
+                removed_graphs, _ = GRAPH_STORE.delete_draft(path, edited_body)
+            except OSError as exc:
+                st.error(str(exc))
+            else:
+                suffix = f" and {removed_graphs} private graph(s)" if removed_graphs else ""
+                set_flash(f"Deleted `{relative(path)}`{suffix}", "warning")
+                st.rerun()
 
 
 def edit_post_flow(label_to_path: dict[str, Path]) -> None:
@@ -1024,7 +1151,13 @@ def edit_post_flow(label_to_path: dict[str, Path]) -> None:
         with math_col:
             use_math = st.checkbox("Math", value=has_mathjax(body), key=f"post_math_{path.name}")
 
-    edited_body = markdown_editor(body_without_math, key=f"post_body_editor_{path.name}")
+    edited_body = markdown_editor(
+        body_without_math,
+        key=f"post_body_editor_{path.name}",
+        document_id=relative(path),
+        graph_enabled=True,
+        published=True,
+    )
     updated_metadata = metadata_from_inputs(title, categories, tags, date=date)
     original_title = str(metadata.get("title", path.stem)).strip()
     original_date = str(metadata.get("date", date_from_post_path(path))).strip()
@@ -1041,7 +1174,7 @@ def edit_post_flow(label_to_path: dict[str, Path]) -> None:
         if st.button("Save Published Post", type="primary", key=f"save_post_{path.name}"):
             try:
                 saved_path = save_edited_post(path, updated_metadata, edited_body, use_math)
-            except (FileExistsError, ValueError) as exc:
+            except (FileExistsError, GraphValidationError, OSError, ValueError) as exc:
                 st.error(str(exc))
             else:
                 set_flash(f"Saved published post `{relative(saved_path)}`")
@@ -1060,7 +1193,7 @@ def github_sync_flow() -> None:
         branch = current_branch()
         remote = current_remote()
         status_lines = git_status_lines()
-        post_paths = changed_post_paths()
+        bundles = changed_publish_bundles()
     except RuntimeError as exc:
         st.error(str(exc))
         return
@@ -1072,14 +1205,27 @@ def github_sync_flow() -> None:
     else:
         st.success("No local Git changes.")
 
-    post_label_to_path = changed_post_labels(post_paths)
+    status_by_path = {status_path(line): line[:2].strip() or "modified" for line in status_lines}
+    bundle_by_label: dict[str, PublishBundle] = {}
+    for bundle in bundles:
+        post_status = status_by_path.get(relative(bundle.post), "graph changed")
+        graph_note = f" · {len(bundle.graph_ids)} graph(s)" if bundle.graph_ids else ""
+        bundle_by_label[f"{post_status} · {relative(bundle.post)}{graph_note}"] = bundle
     st.markdown("### 1. Choose published posts")
     selected_labels = st.multiselect(
-        "Changed post files",
-        options=list(post_label_to_path),
+        "Changed publish bundles",
+        options=list(bundle_by_label),
         default=[],
     )
-    selected_paths = [post_label_to_path[label] for label in selected_labels]
+    selected_paths: list[Path] = []
+    seen_paths: set[Path] = set()
+    for label in selected_labels:
+        for path in bundle_by_label[label].paths:
+            if path not in seen_paths:
+                selected_paths.append(path)
+                seen_paths.add(path)
+    if selected_paths:
+        st.caption("Will stage only: " + ", ".join(f"`{relative(path)}`" for path in selected_paths))
     st.markdown("### 2. Describe the update")
     commit_message = st.text_area(
         "Commit message",
@@ -1088,7 +1234,7 @@ def github_sync_flow() -> None:
     )
 
     st.markdown("### 3. Review and publish")
-    confirm_sync = st.checkbox("I reviewed the selected posts and commit message")
+    confirm_sync = st.checkbox("I reviewed the selected post, graph assets, and commit message")
 
     sync_disabled = not selected_paths or not confirm_sync
     if st.button(

@@ -53,6 +53,58 @@ Do not pre-type both `$$` lines and then place the cursor between them when edit
 | Hat | `\hat{\theta}` |
 | Bold symbol | `\mathbf{x}` |
 
+## Causal Graphs
+
+Causal graphs are available while editing an already saved draft or a published
+post. Save a new draft once before adding its first graph.
+
+### Create a graph
+
+1. Put the cursor where the graph should appear, usually on an empty line
+   between two paragraphs.
+2. Type `/` and choose **Causal graph**, or use the **Causal graph** button above
+   the editor.
+3. Add nodes and edit each selected node's label, role, and observed state.
+4. Choose **Directed edge** or **Bidirected edge**, then drag from one node to
+   another. Use a bidirected edge for a symmetric relationship such as latent
+   confounding; it does not count as a directed cycle.
+5. Add the required alternative text and an optional visible caption, then
+   choose **Save graph**.
+
+The graph is inserted at the bookmarked cursor only after its source saves
+successfully. If validation or file saving fails, the article and cursor remain
+unchanged.
+
+### Node roles
+
+| Role | Use |
+|---|---|
+| Standard | An ordinary variable |
+| Exposure | One or more treatments or exposures |
+| Outcome | One or more outcomes |
+| Adjusted | A variable included in adjustment |
+| Latent | Turn off **Observed**; latent nodes must keep the Standard role |
+
+Role and latent state are distinguished by shape, border weight, and dash style
+as well as color. Version 1 supports Unicode labels and up to 50 nodes. It does
+not support LaTeX labels, adjustment-set calculation, d-separation queries, or
+automatic causal identification.
+
+### Re-edit and publish
+
+- Double-click a causal graph block, or focus it and press Enter, to reopen the
+  same graph.
+- **Top-down** arranges the current graph; **Fit** recenters it. Dragging nodes
+  stores their final coordinates. Undo and redo apply inside the graph editor.
+- Publishing a draft validates every referenced graph, then promotes its SVG,
+  private JSON source, and post body together. The public post contains only a
+  non-interactive white-background SVG, alternative text, and optional caption.
+- Editing a graph in an already published post updates its JSON and SVG
+  together. The Publish screen detects graph-only changes and lists the exact
+  files that will be staged.
+- Removing a graph block from an article does not delete published assets.
+  Orphan cleanup is a separate, confirmed maintenance task.
+
 ## Basic Markdown
 
 Start a line with the marker, then press Space. The editor converts it into a formatted block.
