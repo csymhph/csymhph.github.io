@@ -90,21 +90,21 @@ permalink: /
         <span class="record-date">2026–Present</span>
         <div class="record-copy">
           <h3>AI Platform for Predicting Drug Efficacy and Side Effects from Integrated Medical and Multi-omics Data</h3>
-          <p>Ministry of Food and Drug Safety</p>
+          <p>Participant · National research project, Ministry of Food and Drug Safety</p>
         </div>
       </li>
       <li class="record-row">
         <span class="record-date">2025–Present</span>
         <div class="record-copy">
           <h3>Advancing Credit Decision Making</h3>
-          <p>AFINIT</p>
+          <p>Working-level lead · Industry–academia collaborative research project, AFINIT</p>
         </div>
       </li>
       <li class="record-row">
-        <span class="record-date">2024–2025</span>
+        <span class="record-date">2025</span>
         <div class="record-copy">
           <h3>Metabolomic Big Data Analysis</h3>
-          <p>Ministry of Food and Drug Safety</p>
+          <p>Participant · National research project, Ministry of Food and Drug Safety</p>
         </div>
       </li>
     </ol>
