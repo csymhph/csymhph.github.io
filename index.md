@@ -9,13 +9,14 @@ permalink: /
       <p class="eyebrow">Causality · Uncertainty · Explanation</p>
       <h1 id="intro-title">Sangyeon Cho</h1>
       <p class="intro-copy">
-        Master's student at the
+        Incoming Ph.D. student in Data Science at the
         <a href="https://gsds.snu.ac.kr/"><strong>Graduate School of Data Science, Seoul National University</strong></a>,
-        working in the Causality Lab with Professor
+        starting in September 2026 and advised in the Causality Lab by Professor
         <a href="https://www.sanghacklee.me/"><strong>Sanghack Lee</strong></a>.
-        My work focuses on causal inference, conformal prediction, and
-        explainable AI, with broader interests in machine learning, economics,
-        and philosophy.
+        My research focuses on causal inference, uncertainty quantification,
+        conformal prediction, and time-series analysis, particularly
+        individualized treatment effect estimation and decision-making under
+        uncertainty in longitudinal settings.
       </p>
       <div class="actions" aria-label="Primary contact links">
         <a class="button button-primary" href="mailto:{{ site.email }}">Email me ↗</a>
@@ -27,7 +28,7 @@ permalink: /
       <dl>
         <div class="profile-card-row">
           <dt>Current</dt>
-          <dd>Master's student</dd>
+          <dd>Incoming Ph.D. student</dd>
         </div>
         <div class="profile-card-row">
           <dt>At</dt>
@@ -61,15 +62,15 @@ permalink: /
       <article class="topic-card">
         <span class="topic-number">02</span>
         <div>
-          <h3>Conformal prediction</h3>
-          <p>Quantifying predictive uncertainty with transparent guarantees.</p>
+          <h3>Uncertainty quantification</h3>
+          <p>Conformal prediction and transparent uncertainty measures for individualized treatment effects.</p>
         </div>
       </article>
       <article class="topic-card">
         <span class="topic-number">03</span>
         <div>
-          <h3>Explainable AI</h3>
-          <p>Understanding and communicating how models arrive at their predictions.</p>
+          <h3>Time-series analysis</h3>
+          <p>Longitudinal and time-dependent settings with evolving treatments, outcomes, and confounding factors.</p>
         </div>
       </article>
     </div>
@@ -86,14 +87,21 @@ permalink: /
     </div>
     <ol class="record-list" aria-label="Current and past projects">
       <li class="record-row">
-        <span class="record-date">2025–2026</span>
+        <span class="record-date">2026–Present</span>
         <div class="record-copy">
-          <h3>Advancing Credit Decision Making</h3>
-          <p>Afinit</p>
+          <h3>AI Platform for Predicting Drug Efficacy and Side Effects from Integrated Medical and Multi-omics Data</h3>
+          <p>Ministry of Food and Drug Safety</p>
         </div>
       </li>
       <li class="record-row">
-        <span class="record-date">2025–2026</span>
+        <span class="record-date">2025–Present</span>
+        <div class="record-copy">
+          <h3>Advancing Credit Decision Making</h3>
+          <p>AFINIT</p>
+        </div>
+      </li>
+      <li class="record-row">
+        <span class="record-date">2024–2025</span>
         <div class="record-copy">
           <h3>Metabolomic Big Data Analysis</h3>
           <p>Ministry of Food and Drug Safety</p>
@@ -155,7 +163,21 @@ permalink: /
     </div>
     <ol class="record-list" aria-label="Education">
       <li class="record-row">
-        <span class="record-date">2018–2024</span>
+        <span class="record-date">Sep 2026–</span>
+        <div class="record-copy">
+          <h3>Ph.D. in Data Science</h3>
+          <p>Seoul National University · Incoming</p>
+        </div>
+      </li>
+      <li class="record-row">
+        <span class="record-date">Aug 2026</span>
+        <div class="record-copy">
+          <h3>Master of Data Science</h3>
+          <p>Seoul National University</p>
+        </div>
+      </li>
+      <li class="record-row">
+        <span class="record-date">2024</span>
         <div class="record-copy">
           <h3>B.A. in Economics</h3>
           <p>Seoul National University</p>

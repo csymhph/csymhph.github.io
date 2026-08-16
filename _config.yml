@@ -1,11 +1,11 @@
 title: Sangyeon Cho
-email: csymhph@snu.ac.kr
-description: Personal academic homepage of Sangyeon Cho, focused on causal inference, conformal prediction, and explainable AI.
+email: csymhph@gmail.com
+description: Personal academic homepage of Sangyeon Cho, an incoming Ph.D. student in Data Science at Seoul National University, focused on causal inference, uncertainty quantification, conformal prediction, and time-series analysis.
 theme: minima
 url: "https://csymhph.github.io"
 baseurl: ""
 name: Sangyeon Cho
-job: Master's Student
+job: Incoming Ph.D. Student, Data Science
 location: Seoul, Republic of Korea
 github_username: csymhph
 # Build Settings
@@ -21,12 +21,19 @@ exclude:
   - AGENTS.md
   - DESIGN_SYSTEM.md
   - EDITING_DIRECTION.md
+  - Gemfile
+  - Gemfile.lock
   - MILESTONES.md
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
+  - _site
   - blog-gui.command
   - design-demo
   - environment.yml
   - scripts
   - tools
+  - vendor
 
 header_pages:
   - publications.md

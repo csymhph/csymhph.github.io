@@ -4,6 +4,11 @@ progress.md
 .DS_Store
 _drafts/
 .streamlit/
+.bundle/
+.jekyll-cache/
+.sass-cache/
+_site/
+vendor/
 .env
 .env.*
 !.env.example
