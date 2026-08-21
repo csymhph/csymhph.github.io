@@ -224,9 +224,18 @@ def hide_streamlit_chrome() -> None:
         [data-testid="stTextInput"] input[aria-label="Title"] {
             font-size: clamp(2rem, 5vw, 3.4rem);
             font-weight: 720;
+            line-height: 1.1;
             min-height: 4.7rem;
             letter-spacing: -0.05em;
             padding-left: 0;
+        }
+        /* Streamlit sizes its input wrappers for the default 14px control, so the
+           enlarged title is clipped unless the wrappers grow with it. */
+        [data-testid="stTextInput"]:has(input[aria-label="Title"]) [data-testid="stTextInputRootElement"],
+        [data-testid="stTextInput"]:has(input[aria-label="Title"]) [data-baseweb="base-input"] {
+            height: auto;
+            min-height: 4.7rem;
+            overflow: visible;
         }
         [data-testid="stTextInput"]:has(input[aria-label="Title"]) [data-baseweb="base-input"] {
             background: transparent;

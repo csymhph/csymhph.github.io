@@ -220,8 +220,17 @@ function GraphDialog({ initial, theme, pending, serverError, onCancel, onSave }:
     if (!cy || graph.nodes.length >= 50) return;
     stopEdgeMode();
     const id = `n-${crypto.randomUUID().slice(0, 8)}`;
-    const position = cy.extent();
-    cy.add({ data: { id, label: `Node ${graph.nodes.length + 1}`, role: "standard", observed: true }, position: { x: (position.x1 + position.x2) / 2, y: (position.y1 + position.y2) / 2 } });
+    const extent = cy.extent();
+    const centre = { x: (extent.x1 + extent.x2) / 2, y: (extent.y1 + extent.y2) / 2 };
+    // Fan successive nodes out around the centre. Placing every new node on the
+    // same point stacks them, so they cannot be told apart, selected, or joined
+    // by an edge until the author happens to run a layout.
+    const index = graph.nodes.length;
+    const ring = Math.floor(index / 6);
+    const angle = (index % 6) * (Math.PI / 3) + ring * (Math.PI / 6);
+    const radius = index === 0 ? 0 : 96 + ring * 56;
+    const position = { x: centre.x + Math.cos(angle) * radius, y: centre.y + Math.sin(angle) * radius };
+    cy.add({ data: { id, label: `Node ${graph.nodes.length + 1}`, role: "standard", observed: true }, position });
     commit(graphFromCy(cy, graphRef.current));
     setSelected({ type: "node", id });
   };

@@ -14,7 +14,7 @@ completion criteria.
 | M2. Multipage visual demo | Complete | Approved navigation, page hierarchy, and light/dark visual direction demonstrated |
 | M3. Local Writing Studio | Complete | Local drafting, editing, publishing, Git sync, and macOS launch flow working |
 | M4. Production Jekyll redesign | Complete | Production layouts are live; Pages build and desktop/mobile browser checks passed |
-| M4.1. Causal Graph Authoring | In progress | Local implementation and automated tests are complete; browser and release validation remain |
+| M4.1. Causal Graph Authoring | In progress | Released as `f476628` and pushed; browser pass part-done with two defects fixed and one open |
 | M5. Cloud Writing Studio | Deferred | Move authoring to a private Streamlit Community Cloud app for arbitrary-device access |
 | M6. Integrated release and operations | Not started | Connect the production site, cloud editor, publishing flow, and operating documentation |
 
@@ -141,8 +141,9 @@ Completion criteria:
 
 ## M4.1. Causal Graph Authoring
 
-**Status:** In progress — local implementation and automated verification complete;
-manual browser and release validation pending
+**Status:** In progress — released to `main` as commit `f476628` and pushed; the
+manual browser pass is part-done (paused 2026-08-17) with one open defect and
+some checks outstanding
 
 Objective:
 
@@ -166,10 +167,28 @@ Delivered locally:
       and private JSON source without staging unrelated paths.
 - [x] Added Python and frontend unit coverage and retained build artifacts so
       launching the Studio does not require npm.
-- [ ] Manually verify cursor insertion, graph re-editing, focus, drag/zoom,
-      light/dark Studio appearance, and narrow-screen behavior in a browser.
-- [ ] After separately approved commits and pushes, verify the GitHub Pages
-      build and a published SVG's alternative text and caption.
+- [x] Manually verify cursor insertion, graph re-editing, edge drag, the
+      required alternative-text gate, and the dark Studio appearance in a
+      browser. Done 2026-08-17 by driving Edge over the DevTools Protocol.
+- [x] Fix the clipped Writing Studio title field: the enlarged input was cut off
+      by Streamlit's fixed-height, `overflow: hidden` wrapper.
+- [x] Fix `addNode` stacking every new node on one point, which made nodes
+      impossible to tell apart, select, or connect.
+- [ ] Fix the open re-editing defect: reopening a saved graph leaves the edge
+      source node and its edges invisible because Cytoscape keeps a stale
+      memoised `takesUpSpace()`. The model, saving, and the published SVG are
+      all correct, so this is display-only. See `progress.md` for the
+      investigation and the reverted fix attempt.
+- [ ] Manually verify the light Studio appearance, narrow screens, 200% zoom,
+      keyboard/focus inside the graph editor, and node-drag coordinate
+      persistence.
+- [ ] Manually verify publish promotion, which moves the post body, private
+      JSON, and SVG together.
+- [x] Release M4.1 separately. Committed as `f476628` and pushed; `main` is in
+      sync with `origin/main`.
+- [ ] Verify a published SVG's alternative text and caption on the live site.
+      Blocked until a post actually contains a graph — no file exists yet under
+      `assets/causal-graphs/`.
 
 Completion criteria:
 
@@ -244,8 +263,11 @@ Completion criteria:
 
 ## Current recommended sequence
 
-1. Complete M4's separately approved release and browser validation.
-2. Complete M4.1's manual browser pass, then release and validate it separately.
+1. M4 and M4.1 are both released and pushed. Nothing further is pending on the
+   release side.
+2. Finish M4.1's manual browser pass and resolve the open reopened-graph display
+   defect. The working tree still carries unreleased fixes for the title field
+   and node placement.
 3. Resume M5 when Streamlit account, draft-storage choice, and repository token
    are ready.
 4. Complete M6 only after all production surfaces have been independently
