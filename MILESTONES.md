@@ -368,8 +368,13 @@ Piano, and Baseball. No descriptive copy was invented.
 
 ### Content TODOs
 
-- [ ] After the contract is executed, add the new AFINIT project expected to
-      begin in October 2026. Do not publish it before contract execution.
+- [ ] **Research interests:** Revisit the wording and substance of all three
+      descriptions in a dedicated copy pass with the owner. This revision was
+      explicitly deferred on 2026-08-21; do not rewrite them incidentally during
+      unrelated site work.
+- [ ] **Research projects:** After the contract is executed, add the new AFINIT
+      project expected to begin in October 2026. Do not publish it before
+      contract execution.
 
 ### Phase G — Validation and restraint pass
 
