@@ -14,9 +14,9 @@ permalink: /
         starting in September 2026 and advised in the Causality Lab by Professor
         <a href="https://www.sanghacklee.me/"><strong>Sanghack Lee</strong></a>.
         My research focuses on causal inference, uncertainty quantification,
-        conformal prediction, and time-series analysis, particularly
-        individualized treatment effect estimation and decision-making under
-        uncertainty in longitudinal settings.
+        and time-series analysis, particularly individualized treatment effect
+        estimation and decision-making under uncertainty in longitudinal
+        settings.
       </p>
       <div class="actions" aria-label="Primary contact links">
         <a class="button button-primary" href="mailto:{{ site.email }}">Email me ↗</a>

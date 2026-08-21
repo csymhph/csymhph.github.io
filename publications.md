@@ -65,7 +65,7 @@ summary: Current manuscripts and conference work in causal inference and uncerta
   </div>
   <div class="topic-grid topic-grid-compact">
     <article class="topic-card"><span class="topic-number">01</span><h3>Causal inference</h3></article>
-    <article class="topic-card"><span class="topic-number">02</span><h3>Conformal prediction</h3></article>
+    <article class="topic-card"><span class="topic-number">02</span><h3>Uncertainty quantification</h3></article>
     <article class="topic-card"><span class="topic-number">03</span><h3>Time-series analysis</h3></article>
   </div>
 </section>
