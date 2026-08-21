@@ -175,7 +175,6 @@ h1 {
   font-weight: 660;
   letter-spacing: -0.025em;
   line-height: 1.12;
-  text-wrap: balance;
 }
 
 h2 {
@@ -183,7 +182,6 @@ h2 {
   font-weight: 640;
   letter-spacing: -0.018em;
   line-height: 1.2;
-  text-wrap: balance;
 }
 
 h3 {
@@ -191,7 +189,6 @@ h3 {
   font-weight: 620;
   letter-spacing: -0.005em;
   line-height: 1.35;
-  text-wrap: balance;
 }
 
 .shell {
@@ -327,7 +324,6 @@ h3 {
 }
 
 .role {
-  max-width: 62ch;
   margin: 0 0 var(--s5);
   color: var(--muted);
 }
@@ -342,17 +338,14 @@ h3 {
 }
 
 .claim {
-  max-width: 44ch;
   margin: 0 0 var(--s6);
   font-size: var(--type-sub);
   font-weight: 480;
   letter-spacing: -0.012em;
   line-height: 1.45;
-  text-wrap: pretty;
 }
 
 .section-intro {
-  max-width: 62ch;
   margin: calc(-1 * var(--s3)) 0 var(--s5);
   color: var(--muted);
 }
@@ -423,7 +416,6 @@ h3 {
 }
 
 .area p {
-  max-width: 62ch;
   margin: 0;
   color: var(--muted);
 }
@@ -456,7 +448,6 @@ h3 {
 
 .record-copy {
   min-width: 0;
-  max-width: 74ch;
 }
 
 .record-copy h3 {
