@@ -362,6 +362,11 @@ on any public page.
 The owner settled the current Hobbies content as the three names Calligraphy,
 Piano, and Baseball. No descriptive copy was invented.
 
+### Content TODOs
+
+- [ ] After the contract is executed, add the new AFINIT project expected to
+      begin in October 2026. Do not publish it before contract execution.
+
 ### Phase G — Validation and restraint pass
 
 - [x] Test all seven positive criteria at source/build level, including the
