@@ -128,7 +128,10 @@ permalink: /
     <ol class="records" aria-label="News">
       <li class="record">
         <time class="record-date" datetime="2026-08">Aug 2026</time>
-        <div class="record-copy"><h3>Completed the Master of Data Science at SNU</h3></div>
+        <div class="record-copy">
+          <h3>I completed my Master of Data Science at SNU!</h3>
+          <p>Many thanks to my advisor, Professor Sanghack Lee, and all my collaborators.</p>
+        </div>
       </li>
       <li class="record">
         <time class="record-date" datetime="2026-07">Jul 2026</time>
