@@ -295,6 +295,9 @@ is recorded in `DESIGN_SYSTEM.md` and can be added with the config key.
       `_includes/header.html`; there is one page.
 - [x] Add `scroll-margin-top` to anchor targets and apply smooth scrolling only
       under `prefers-reduced-motion: no-preference`. Add no scroll-spy script.
+- [x] Keep real anchor targets as a no-JavaScript fallback, but prevent same-page
+      navigation from persisting fragments in the URL or history. Reload Home at
+      the top rather than restoring the last section.
 - [x] Do not retain or redirect `/publications/` and `/hobbies/`; the owner does
       not require backward compatibility for those URLs.
 - [x] Remove the blog anchor, the writing section, and the post counter, so no

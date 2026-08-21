@@ -367,7 +367,10 @@ Two consequences follow:
 
 Anchor targets carry `scroll-margin-top` so a jumped-to heading is not flush
 against the viewport edge, and smooth scrolling is applied only under
-`prefers-reduced-motion: no-preference`.
+`prefers-reduced-motion: no-preference`. Same-page navigation scrolls without
+persisting a fragment in the address or browser history; the real anchor `href`
+remains as a no-JavaScript fallback. Reloading the one-page site returns to the
+top instead of restoring a section fragment.
 
 ### Home
 

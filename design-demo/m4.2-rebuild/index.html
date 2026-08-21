@@ -842,6 +842,35 @@
 
     paint(read());
 
+    var historyApi = window.history;
+    var navigationEntry = window.performance && window.performance.getEntriesByType
+      ? window.performance.getEntriesByType('navigation')[0]
+      : null;
+    var isReload = navigationEntry && navigationEntry.type === 'reload';
+
+    if ('scrollRestoration' in historyApi) {
+      historyApi.scrollRestoration = 'manual';
+    }
+
+    document.querySelectorAll('.site-nav a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView();
+        try {
+          historyApi.replaceState(null, '', window.location.pathname + window.location.search);
+        } catch (e) { /* srcdoc preview may not own the parent URL */ }
+      });
+    });
+
+    if (isReload) {
+      try {
+        historyApi.replaceState(null, '', window.location.pathname + window.location.search);
+      } catch (e) { /* srcdoc preview may not own the parent URL */ }
+      window.scrollTo(0, 0);
+    }
+
 
     btn.addEventListener('click', function () {
       var current = root.getAttribute('data-theme');
