@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="site-name" rel="author" href="{{ '/' | relative_url }}">
+    <a class="site-name" rel="author" href="{{ '/' | relative_url }}#top">
       {{ site.title | escape }}
     </a>
 
@@ -8,16 +8,10 @@
       <nav aria-label="Primary navigation">
         <ul class="site-nav">
           <li>
-            <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
+            <a href="{{ '/' | relative_url }}#works">Works</a>
           </li>
           <li>
-            <a href="{{ '/publications/' | relative_url }}"{% if page.url contains '/publications/' %} aria-current="page"{% endif %}>Publications</a>
-          </li>
-          <li>
-            <a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog/' or page.layout == 'post' %} aria-current="page"{% endif %}>Blog</a>
-          </li>
-          <li>
-            <a href="{{ '/hobbies/' | relative_url }}"{% if page.url contains '/hobbies/' %} aria-current="page"{% endif %}>Hobbies</a>
+            <a href="{{ '/' | relative_url }}#hobbies">Hobbies</a>
           </li>
         </ul>
       </nav>

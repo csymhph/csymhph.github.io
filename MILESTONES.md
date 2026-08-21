@@ -10,11 +10,12 @@ completion criteria.
 | Milestone | Status | Outcome |
 | --- | --- | --- |
 | M0. Project foundation | Complete | Repository rules, direction, progress tracking, and local environment established |
-| M1. Design system | Complete | Apple-inspired, accessibility-conscious design rules documented |
+| M1. Design system | Superseded | Apple-inspired rules; premise retired 2026-08-21 and replaced by the thesis-driven `DESIGN_SYSTEM.md` |
 | M2. Multipage visual demo | Complete | Approved navigation, page hierarchy, and light/dark visual direction demonstrated |
 | M3. Local Writing Studio | Complete | Local drafting, editing, publishing, Git sync, and macOS launch flow working |
 | M4. Production Jekyll redesign | Complete | Production layouts are live; Pages build and desktop/mobile browser checks passed |
 | M4.1. Causal Graph Authoring | In progress | Released as `f476628` and pushed; browser pass part-done with two defects fixed and one open |
+| M4.2. Thesis-driven site rebuild | In progress | Production translation and automated checks complete; manual visual pass and owner-supplied assets remain |
 | M5. Cloud Writing Studio | Deferred | Move authoring to a private Streamlit Community Cloud app for arbitrary-device access |
 | M6. Integrated release and operations | Not started | Connect the production site, cloud editor, publishing flow, and operating documentation |
 
@@ -197,6 +198,199 @@ Completion criteria:
   promotes JSON/SVG/body atomically, and the public result is a readable static
   SVG with alternative text and an optional caption.
 
+## M4.2. Thesis-driven site rebuild
+
+**Status:** In progress — production translation and automated verification are
+complete; the owner-supplied portrait/CV/LinkedIn targets and a manual browser
+pass remain
+
+Objective:
+
+Rebuild the public site against the rewritten `DESIGN_SYSTEM.md`, whose thesis is
+that the site is a document making one claim, that staleness is the primary
+failure mode, and that visual volume must not exceed content volume. The rebuild
+is judged by that document's positive criteria 1–7, not by the accessibility
+floors alone.
+
+This is a revision of M4's production site, not a new site. Preserve Jekyll +
+Minima + Markdown, add no frameworks, and keep the Writing Studio untouched.
+
+### Phase ordering and dependencies
+
+Phase A precedes everything. Phase B precedes E and F, because untokenised type
+would have to be redone after any markup change. Phase C precedes E. Phases D and
+G depend only on B. Three phases are gated on material only the site owner can
+supply; those gates are named in the phases themselves so the rest can proceed.
+
+### Phase A — Baseline capture
+
+- [ ] Record the before-state at 320, 390, 768, and 1440 CSS pixels in light and
+      dark mode.
+- [x] Record the current measurements the rebuild will be judged against: the
+      count of `font-size` declarations and distinct values, the largest rendered
+      heading, and the measured contrast of every boundary token.
+- [x] Assess the current site against positive criteria 1–7 and record which
+      already pass.
+
+The screenshot item remains open because workspace policy forbids the agent from
+controlling a browser or browser tab. The source-measurable baseline is recorded
+in `../progress.md` at all four target widths.
+
+Done when the before-state and the failing criteria are recorded in
+`../progress.md` without any factual claim on the site being changed.
+
+### Phase B — Tokens, type scale, and boundary contrast
+
+- [x] Add the five type tokens and map every `font-size` in `assets/main.scss`
+      onto one of them.
+- [x] Cap `h1` at `clamp(1.75rem, 4vw, var(--type-title))`, replacing the current
+      5.8rem home title, 6rem page title, 4.4rem narrow-screen page title, and
+      5.2rem article title.
+- [x] Split the single `--line` token into `--separator` and `--border-control`,
+      and apply `--border-control` to the theme toggle and the secondary button,
+      which are currently perceivable only through a 1.34:1 border.
+- [x] Leave all markup and content untouched in this phase.
+
+Done when no `font-size` value exists outside the five tokens, no rendered
+heading exceeds 36px, both control borders measure at least 3:1 in light and dark
+mode, the Jekyll build is clean, and every page is structurally unchanged.
+
+Verify with a declaration inventory, recomputed contrast ratios, a Jekyll build,
+and a visual pass at the four widths.
+
+### Phase C — One source for identity
+
+- [x] Replace the third research area. The set is now causal inference,
+      uncertainty quantification, and **explainability**; time-series analysis is
+      out as a peer area and moves into the causal inference description as the
+      longitudinal setting. Two of the five works are attribution papers, which
+      the old set did not name at all, while time-series appeared in one. See the
+      areas section of `DESIGN_SYSTEM.md`.
+- [x] Define the areas once in `_config.yml` and render them on Home. The retired
+      Publications page is excluded from the public build instead of retaining a
+      second research-area surface.
+- [x] Rewrite the area descriptions so each one states what it settles about an
+      action, rather than describing a field. The areas are the answer to the
+      claim, not a keyword list beside it.
+- [x] Add a config key for the settled claim sentence.
+      The homepage eyebrow reading `Causality · Uncertainty · Explanation` is
+      removed with every other eyebrow in Phase E, but note that it was the
+      accurate statement and the areas list was the inaccurate one.
+
+Done when the areas are defined in exactly one place, the public Home renders
+from it, and no competing area list remains in the public build.
+
+The claim gate was cleared by the site owner on 2026-08-21. The final sentence
+is recorded in `DESIGN_SYSTEM.md` and can be added with the config key.
+
+### Phase D — Single page, navigation, and blog dormancy
+
+- [x] Collapse the public site to one page. Fold `publications.md` and
+      `hobbies.md` into sections of `index.md`, ordered per the Home list in
+      `DESIGN_SYSTEM.md`, with Hobbies last.
+- [x] Replace the navigation with in-page anchors: `Works` and `Hobbies`, with
+      the site name linking to the top. Labels must match the section headings
+      exactly. Drop the current-page state from `_includes/header.html`; there is
+      one page.
+- [x] Add `scroll-margin-top` to anchor targets and apply smooth scrolling only
+      under `prefers-reduced-motion: no-preference`. Add no scroll-spy script.
+- [x] Do not retain or redirect `/publications/` and `/hobbies/`; the owner does
+      not require backward compatibility for those URLs.
+- [x] Remove the blog anchor, the writing section, and the post counter, so no
+      route leads to an empty archive.
+- [x] Leave `_posts`, the post layout, post typography, `mathjax.html`, and the
+      Writing Studio in place and working.
+
+Done when the public site is one page, every navigation label matches the heading
+it targets, no route reaches an empty archive, and the post machinery still
+builds. Verification used Jekyll's `--unpublished` mode in a temporary output
+directory, which exercises every dormant post without modifying source files.
+
+This reverses M2's move from anchor scrolling to page-to-page navigation. See the
+Information architecture section of `DESIGN_SYSTEM.md` for why.
+
+### Phase E — Homepage hierarchy
+
+- [x] Put name, role, and the claim in the first screen, with nothing before them.
+- [x] Remove the profile card, which restates the introduction paragraph
+      sentence for sentence and carries no additional information.
+- [x] Resolve the one-item News section: feed it or fold it. A section with one
+      entry is a sentence.
+- [x] Keep the research-areas block on Home only.
+- [x] Remove every eyebrow and section label sitewide, including the five on Home
+      that restate the heading beneath them and the one above the name that
+      introduced a research area appearing nowhere else. Drop the label role from
+      the stylesheet so it cannot return.
+- [x] Apply the heading set from rule 9: Research interests, Works, Research
+      projects, News, Education. The current `Areas of work`, `Work`, and
+      `Projects` are portfolio vocabulary.
+- [x] Write publication author lists in full. Surname-only abbreviation makes
+      distinct coauthors indistinguishable — two of the papers have two different
+      Chos — and drops the equal-contribution and corresponding-author markers.
+      Keep the footnote that defines those markers wherever they appear.
+- [x] Correct the affiliation framing. `incoming Ph.D. student` appears in
+      `_config.yml`'s description and `job`, the homepage introduction, the
+      profile card, and the education row, which frames the Causality Lab
+      membership as not yet begun. The membership is current; only the degree
+      programme changes in September 2026.
+- [x] Write the email address as plain text in the introduction and the footer.
+      Remove the Email, Google Scholar, and GitHub actions; the site keeps no
+      buttons. Add the portrait when an image exists, and CV and LinkedIn when
+      their targets exist. See rule 7.
+
+Done when criteria 1 through 3 pass on a cold read-through and no section
+restates another.
+
+Gated: the portrait image file, the LinkedIn profile URL, and the CV PDF.
+Rule 5 forbids shipping any of these as a placeholder or a "coming soon", so each
+action stays absent until its target exists.
+
+### Phase F — Publications and Hobbies
+
+- [x] Frame publications as selected work and state the short list plainly.
+- [x] Add per-entry links wherever a public artifact genuinely exists; add none
+      where it does not.
+- [x] Remove the duplicated public research-areas surface by excluding the
+      retired Publications page from the build.
+- [x] Replace the four Hobbies placeholder cards, whose copy currently describes
+      what the cards could someday contain, with real content.
+
+Done when repeated content roles are consistent and no placeholder copy remains
+on any public page.
+
+The owner settled the current Hobbies content as the three names Calligraphy,
+Piano, and Baseball. No descriptive copy was invented.
+
+### Phase G — Validation and restraint pass
+
+- [x] Test all seven positive criteria at source/build level, including the
+      semantic-hierarchy and one-file-edit tests.
+- [ ] Complete the manual CSS-disabled visual read-through in a browser.
+- [ ] Test every browser-only floor: keyboard path with visible focus, 320px and
+      200% zoom without horizontal scrolling, and light/dark appearance.
+- [x] Verify reduced-motion rules and light/dark control-boundary contrast from
+      generated CSS.
+- [x] Run the Jekyll build with Homebrew Ruby 3.3.
+- [ ] Compare final screenshots with the Phase A visual record.
+- [x] Remove any remaining decoration that does not improve hierarchy,
+      comprehension, or interaction.
+- [ ] Follow `gitpolicy.md` before any requested commit, push, branch, or pull
+      request operation.
+
+Automated validation covers the generated hierarchy, anchors, routes, type
+tokens, theme behavior, contrast, reduced-motion rules, dormant post rendering,
+YAML, JavaScript syntax, build output, and whitespace. Browser-only checks stay
+open because this workspace forbids agent control of browsers and tabs.
+
+Done when all seven positive criteria hold, every floor passes, and any untested
+risk is recorded explicitly in `../progress.md`.
+
+Completion criteria:
+
+- The rewritten design system's positive criteria 1–7 all hold, the floors all
+  pass, the site carries no placeholder copy or dead-end route, and the type and
+  boundary systems are token-driven with no value outside them.
+
 ## M5. Cloud Writing Studio
 
 **Status:** Deferred by user decision; resume later
@@ -265,13 +459,18 @@ Completion criteria:
 
 1. M4 and M4.1 are both released and pushed. Nothing further is pending on the
    release side.
-2. Finish M4.1's manual browser pass and resolve the open reopened-graph display
-   defect. The working tree still carries unreleased fixes for the title field
-   and node placement.
-3. Resume M5 when Streamlit account, draft-storage choice, and repository token
+2. Manually review the implemented M4.2 page at the target widths, both
+   appearances, keyboard focus, and 200% zoom. Supply the portrait, CV, and
+   LinkedIn targets when ready; the live templates omit them safely until then.
+3. Finish M4.1's manual browser pass and resolve the open reopened-graph display
+   defect. Independent of M4.2 — the Studio is authoring tooling, not a public
+   surface — so either order works.
+4. Resume M5 when Streamlit account, draft-storage choice, and repository token
    are ready.
-4. Complete M6 only after all production surfaces have been independently
+5. Complete M6 only after all production surfaces have been independently
    verified.
 
-Avoid combining M4, M4.1, and M5 into one large unverified release. They can be
-built and tested independently before the final integration.
+Avoid combining M4.1, M4.2, and M5 into one large unverified release. They can be
+built and tested independently before the final integration. Within M4.2, Phase B
+must land before E and F, or the type work will have to be redone after the
+markup changes.

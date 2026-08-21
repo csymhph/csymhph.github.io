@@ -3,186 +3,168 @@ layout: default
 title: Sangyeon Cho
 permalink: /
 ---
-<section class="intro" aria-labelledby="intro-title">
+<section class="intro" id="top" aria-labelledby="intro-title">
   <div class="shell intro-grid">
-    <div>
-      <p class="eyebrow">Causality · Uncertainty · Explanation</p>
-      <h1 id="intro-title">Sangyeon Cho</h1>
-      <p class="intro-copy">
-        Incoming Ph.D. student in Data Science at the
-        <a href="https://gsds.snu.ac.kr/"><strong>Graduate School of Data Science, Seoul National University</strong></a>,
-        starting in September 2026 and advised in the Causality Lab by Professor
-        <a href="https://www.sanghacklee.me/"><strong>Sanghack Lee</strong></a>.
-        My research focuses on causal inference, uncertainty quantification,
-        and time-series analysis, particularly individualized treatment effect
-        estimation and decision-making under uncertainty in longitudinal
-        settings.
+    <div class="intro-main">
+      <h1 id="intro-title">{{ site.title | escape }}</h1>
+      <p class="role">
+        Causality Lab,
+        <a href="https://gsds.snu.ac.kr/">Graduate School of Data Science, Seoul National University</a>,
+        with <a href="https://www.sanghacklee.me/">Sanghack Lee</a>.
+        Continuing in the lab as a Ph.D. student from September 2026.
       </p>
-      <div class="actions" aria-label="Primary contact links">
-        <a class="button button-primary" href="mailto:{{ site.email }}">Email me ↗</a>
-        <a class="button button-secondary" href="https://github.com/{{ site.github_username }}">GitHub ↗</a>
-      </div>
+      <p class="claim">{{ site.claim }}</p>
+      <p class="contact">
+        <span class="contact-label">Contact</span>
+        {{ site.email | escape }}
+      </p>
     </div>
-
-    <aside class="profile-card" aria-label="Current profile">
-      <dl>
-        <div class="profile-card-row">
-          <dt>Current</dt>
-          <dd>Incoming Ph.D. student</dd>
-        </div>
-        <div class="profile-card-row">
-          <dt>At</dt>
-          <dd>SNU Graduate School of Data Science</dd>
-        </div>
-        <div class="profile-card-row">
-          <dt>Based</dt>
-          <dd>Seoul, Republic of Korea</dd>
-        </div>
-      </dl>
+    {% if site.portrait and site.portrait != empty %}
+    <aside class="intro-aside">
+      <img class="portrait" src="{{ site.portrait | relative_url }}" alt="Portrait of {{ site.title | escape }}" width="200" height="200">
+      {% if site.cv_url and site.cv_url != empty or site.linkedin_url and site.linkedin_url != empty %}
+      <p class="profile-links">
+        {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
+        {% if site.cv_url and site.cv_url != empty and site.linkedin_url and site.linkedin_url != empty %}<span class="separator-mark" aria-hidden="true">·</span>{% endif %}
+        {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}">LinkedIn</a>{% endif %}
+      </p>
+      {% endif %}
     </aside>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="research-title">
-  <div class="shell">
-    <div class="section-header">
-      <div>
-        <p class="section-label">Research</p>
-        <h2 id="research-title">Areas of work</h2>
-      </div>
-    </div>
-    <div class="topic-grid">
-      <article class="topic-card">
-        <span class="topic-number">01</span>
-        <div>
-          <h3>Causal inference</h3>
-          <p>Reasoning about interventions, counterfactuals, and causal structure.</p>
-        </div>
-      </article>
-      <article class="topic-card">
-        <span class="topic-number">02</span>
-        <div>
-          <h3>Uncertainty quantification</h3>
-          <p>Conformal prediction and transparent uncertainty measures for individualized treatment effects.</p>
-        </div>
-      </article>
-      <article class="topic-card">
-        <span class="topic-number">03</span>
-        <div>
-          <h3>Time-series analysis</h3>
-          <p>Longitudinal and time-dependent settings with evolving treatments, outcomes, and confounding factors.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section section-compact" aria-labelledby="work-title">
-  <div class="shell">
-    <div class="section-header">
-      <div>
-        <p class="section-label">Current and past</p>
-        <h2 id="work-title">Projects</h2>
-      </div>
-    </div>
-    <ol class="record-list" aria-label="Current and past projects">
-      <li class="record-row">
-        <span class="record-date">2026–Present</span>
-        <div class="record-copy">
-          <h3>AI Platform for Predicting Drug Efficacy and Side Effects from Integrated Medical and Multi-omics Data</h3>
-          <p>Participant · National research project, Ministry of Food and Drug Safety</p>
-        </div>
-      </li>
-      <li class="record-row">
-        <span class="record-date">2025–Present</span>
-        <div class="record-copy">
-          <h3>Advancing Credit Decision Making</h3>
-          <p>Working-level lead · Industry–academia collaborative research project, AFINIT</p>
-        </div>
-      </li>
-      <li class="record-row">
-        <span class="record-date">2025</span>
-        <div class="record-copy">
-          <h3>Metabolomic Big Data Analysis</h3>
-          <p>Participant · National research project, Ministry of Food and Drug Safety</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section class="section section-compact" aria-labelledby="news-title">
-  <div class="shell">
-    <div class="section-header">
-      <div>
-        <p class="section-label">Updates</p>
-        <h2 id="news-title">News</h2>
-      </div>
-    </div>
-    <ol class="record-list" aria-label="News">
-      <li class="record-row">
-        <time class="record-date" datetime="2025">2025</time>
-        <div class="record-copy"><p>Opened this website.</p></div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section class="section section-compact" aria-labelledby="recent-title">
-  <div class="shell">
-    <div class="section-header">
-      <div>
-        <p class="section-label">Writing</p>
-        <h2 id="recent-title">Recent writing</h2>
-      </div>
-      <a class="section-link" href="{{ '/blog/' | relative_url }}">View all posts →</a>
-    </div>
-    {% if site.posts.size > 0 %}
-    <ol class="list" aria-label="Recent posts">
-      {% for post in site.posts limit: 3 %}
-      <li class="post-row">
-        <time class="row-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-        <a class="row-title" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        <span class="row-category">{{ post.categories | join: " · " }}</span>
-      </li>
-      {% endfor %}
-    </ol>
-    {% else %}
-    <p class="quiet-note">Writing will appear here as posts are published.</p>
     {% endif %}
   </div>
 </section>
 
-<section class="section section-compact" aria-labelledby="education-title">
+<section class="band" id="research-interests" aria-labelledby="research-interests-title">
   <div class="shell">
-    <div class="section-header">
-      <div>
-        <p class="section-label">Training</p>
-        <h2 id="education-title">Education</h2>
+    <h2 id="research-interests-title">Research interests</h2>
+    <div class="areas">
+      {% for area in site.research_interests %}
+      <div class="area">
+        <h3>{{ area.name }}</h3>
+        <p>{{ area.description }}</p>
       </div>
+      {% endfor %}
     </div>
-    <ol class="record-list" aria-label="Education">
-      <li class="record-row">
-        <span class="record-date">Sep 2026–</span>
+  </div>
+</section>
+
+<section class="band" id="works" aria-labelledby="works-title">
+  <div class="shell">
+    <h2 id="works-title">Works</h2>
+    <p class="section-intro">A short selection of current work, workshop presentations, and my master's thesis.</p>
+    <ol class="records" aria-label="Works">
+      <li class="record">
+        <span class="record-date">In progress</span>
         <div class="record-copy">
-          <h3>Ph.D. in Data Science</h3>
-          <p>Seoul National University · Incoming</p>
+          <h3>Conformal Meta-learner for Individual Treatment Effects under Unmeasured Confounding</h3>
+          <p>Jaeho Jeong, Sangyeon Cho, and Sanghack Lee†</p>
         </div>
       </li>
-      <li class="record-row">
+      <li class="record">
+        <span class="record-date">Under review</span>
+        <div class="record-copy">
+          <h3>Decomposing Conformal Uncertainty: Calibration- and Instance-Driven Feature Attribution</h3>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee†</p>
+        </div>
+      </li>
+      <li class="record">
+        <span class="record-date">Under review</span>
+        <div class="record-copy">
+          <h3>OPERA-S: Deterministic Tail Safety in Ensemble Off-Policy Evaluation</h3>
+          <p>Hyunwoo Kim, Gyeongchan Han, Bogeun Kim, Serjin Kim, Sangyeon Cho, Junha Ham, Jaehyeok Shin, and Sanghack Lee†</p>
+        </div>
+      </li>
+      <li class="record">
+        <span class="record-date">ICML 2026 (WS)</span>
+        <div class="record-copy">
+          <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
+        </div>
+      </li>
+      <li class="record">
         <span class="record-date">Aug 2026</span>
         <div class="record-copy">
-          <h3>Master of Data Science</h3>
-          <p>Seoul National University</p>
-        </div>
-      </li>
-      <li class="record-row">
-        <span class="record-date">2024</span>
-        <div class="record-copy">
-          <h3>B.A. in Economics</h3>
-          <p>Seoul National University</p>
+          <h3>Conformal Prediction for Individual Treatment Effects under Time-Varying Treatment Strategies</h3>
+          <p>Sangyeon Cho · Master of Data Science, Seoul National University</p>
         </div>
       </li>
     </ol>
+    <p class="note">* Equal contribution. † Corresponding author.</p>
+  </div>
+</section>
+
+<section class="band" id="research-projects" aria-labelledby="research-projects-title">
+  <div class="shell">
+    <h2 id="research-projects-title">Research projects</h2>
+    <ol class="records" aria-label="Research projects">
+      <li class="record">
+        <span class="record-date">2026–Present</span>
+        <div class="record-copy">
+          <h3>AI Platform for Predicting Drug Efficacy and Side Effects from Integrated Medical and Multi-omics Data</h3>
+          <p>Participant · Ministry of Food and Drug Safety</p>
+        </div>
+      </li>
+      <li class="record">
+        <span class="record-date">2025–Present</span>
+        <div class="record-copy">
+          <h3>Advancing Credit Decision Making</h3>
+          <p>Working-level lead · Industry–academia collaboration, AFINIT</p>
+        </div>
+      </li>
+      <li class="record">
+        <span class="record-date">2025</span>
+        <div class="record-copy">
+          <h3>Metabolomic Big Data Analysis</h3>
+          <p>Participant · Ministry of Food and Drug Safety</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="news" aria-labelledby="news-title">
+  <div class="shell">
+    <h2 id="news-title">News</h2>
+    <ol class="records" aria-label="News">
+      <li class="record">
+        <time class="record-date" datetime="2026-08">Aug 2026</time>
+        <div class="record-copy"><h3>Completed the Master of Data Science at SNU</h3></div>
+      </li>
+      <li class="record">
+        <time class="record-date" datetime="2026-07">Jul 2026</time>
+        <div class="record-copy"><h3>Spotlight talk at the EIML workshop, ICML 2026</h3></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="education" aria-labelledby="education-title">
+  <div class="shell">
+    <h2 id="education-title">Education</h2>
+    <ol class="records" aria-label="Education">
+      <li class="record">
+        <span class="record-date">Sep 2026–</span>
+        <div class="record-copy"><h3>Ph.D. in Data Science</h3><p>Seoul National University</p></div>
+      </li>
+      <li class="record">
+        <span class="record-date">Aug 2026</span>
+        <div class="record-copy"><h3>Master of Data Science</h3><p>Seoul National University</p></div>
+      </li>
+      <li class="record">
+        <span class="record-date">2024</span>
+        <div class="record-copy"><h3>B.A. in Economics</h3><p>Seoul National University</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="hobbies" aria-labelledby="hobbies-title">
+  <div class="shell">
+    <h2 id="hobbies-title">Hobbies</h2>
+    <ul class="interests">
+      <li><h3>Calligraphy</h3></li>
+      <li><h3>Piano</h3></li>
+      <li><h3>Baseball</h3></li>
+    </ul>
   </div>
 </section>

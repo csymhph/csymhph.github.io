@@ -1,12 +1,9 @@
 <footer class="site-footer">
   <div class="shell footer-inner">
-    <div>
-      <p class="footer-prompt">Research, notes, and occasional ideas.</p>
-      <div class="footer-links">
-        <a href="mailto:{{ site.email | escape }}">Email</a>
-        <a href="https://github.com/{{ site.github_username | escape }}">GitHub</a>
-      </div>
-    </div>
-    <p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title | escape }}<br>Seoul, Republic of Korea</p>
+    <span>{{ site.title | escape }}</span>
+    <span>{{ site.email | escape }}</span>
+    {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
+    {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}">LinkedIn</a>{% endif %}
+    <span>© {{ site.time | date: '%Y' }}</span>
   </div>
 </footer>

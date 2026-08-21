@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M4.2 rebuild · local preview</title>
+  <style>
+    html,
+    body,
+    iframe {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: 0;
+    }
+
+    body {
+      background: #fbfbfd;
+      color: #1d1d1f;
+      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #status {
+      box-sizing: border-box;
+      max-width: 44rem;
+      margin: 4rem auto;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <p id="status">Loading the M4.2 demo…</p>
+  <iframe id="preview" title="M4.2 homepage rebuild preview" hidden></iframe>
+  <script>
+    const status = document.getElementById("status");
+    const preview = document.getElementById("preview");
+
+    fetch("index.html")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.text();
+      })
+      .then((source) => {
+        preview.srcdoc = source;
+        preview.hidden = false;
+        status.remove();
+      })
+      .catch((error) => {
+        status.textContent = `Could not load the demo: ${error.message}`;
+      });
+  </script>
+</body>
+</html>

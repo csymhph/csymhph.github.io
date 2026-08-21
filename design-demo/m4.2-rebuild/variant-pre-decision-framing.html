@@ -1,0 +1,857 @@
+<title>Homepage Rebuild</title>
+
+<style>
+  /* ============================================================
+     Tokens. Complete light palette on bare :root.
+     Values are the verified ones from DESIGN_SYSTEM.md.
+     ============================================================ */
+  :root {
+    color-scheme: light dark;
+
+    --canvas: #fbfbfd;
+    --surface: #f2f4f7;
+    --surface-strong: #ffffff;
+    --text: #1d1d1f;
+    --muted: #5d6168;
+    --separator: #d8dbe0;      /* decorative only, no contrast floor */
+    --border-control: #828b98;  /* 3.33:1 on canvas, 3.45:1 on white */
+    --accent: #0057b8;
+    --accent-hover: #003f88;
+    --on-accent: #ffffff;
+    --focus: #0071e3;
+    --demo-ground: #eceef2;
+    --demo-text: #41454d;
+
+    /* Five type roles. Every font-size below resolves to one of these. */
+    --type-title: 2.25rem;    /* 36px */
+    --type-section: 1.75rem;  /* 28px */
+    --type-sub: 1.375rem;     /* 22px */
+    --type-body: 1.0625rem;   /* 17px */
+    --type-meta: 0.875rem;    /* 14px */
+
+    --s2: 8px;  --s3: 12px; --s4: 16px; --s5: 24px;
+    --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+
+    --shell: 1050px;
+    --aside: 200px;
+    --radius-sm: 8px;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --canvas: #101114;
+      --surface: #191b20;
+      --surface-strong: #202329;
+      --text: #f5f5f7;
+      --muted: #b2b6bf;
+      --separator: #343841;
+      --border-control: #6a7280;  /* 3.89:1 on canvas, 3.25:1 on surface */
+      --accent: #78b7ff;
+      --accent-hover: #a7d0ff;
+      --on-accent: #071629;
+      --focus: #8fc4ff;
+      --demo-ground: #08090b;
+      --demo-text: #9ca1ab;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --canvas: #101114;
+    --surface: #191b20;
+    --surface-strong: #202329;
+    --text: #f5f5f7;
+    --muted: #b2b6bf;
+    --separator: #343841;
+    --border-control: #6a7280;
+    --accent: #78b7ff;
+    --accent-hover: #a7d0ff;
+    --on-accent: #071629;
+    --focus: #8fc4ff;
+    --demo-ground: #08090b;
+    --demo-text: #9ca1ab;
+  }
+
+  :root[data-theme="light"] {
+    --canvas: #fbfbfd;
+    --surface: #f2f4f7;
+    --surface-strong: #ffffff;
+    --text: #1d1d1f;
+    --muted: #5d6168;
+    --separator: #d8dbe0;
+    --border-control: #828b98;
+    --accent: #0057b8;
+    --accent-hover: #003f88;
+    --on-accent: #ffffff;
+    --focus: #0071e3;
+    --demo-ground: #eceef2;
+    --demo-text: #41454d;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--demo-ground);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: var(--type-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* ============================================================
+     Demo chrome. Deliberately outside the design being shown.
+     ============================================================ */
+  .strip {
+    padding: var(--s5) var(--s5);
+    background: var(--demo-ground);
+    color: var(--demo-text);
+    font-size: var(--type-meta);
+    line-height: 1.5;
+  }
+  .strip-inner {
+    max-width: var(--shell);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2) var(--s5);
+    align-items: baseline;
+  }
+  .strip strong { color: var(--text); font-weight: 620; }
+  .strip p { margin: 0; max-width: 62ch; }
+
+  /* The demo frame: everything inside is the design under review. */
+  .frame {
+    background: var(--canvas);
+    border-top: 1px solid var(--separator);
+    border-bottom: 1px solid var(--separator);
+  }
+
+  .shell {
+    max-width: var(--shell);
+    margin: 0 auto;
+    padding: 0 var(--s5);
+  }
+
+  /* One document, so nav entries are in-page anchors. The offset keeps a
+     jumped-to heading clear of the viewport edge. */
+  [id] { scroll-margin-top: var(--s5); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :root { scroll-behavior: smooth; }
+  }
+
+  /* Interests: same name-plus-line shape as the research areas above. */
+  .interests { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s5); }
+  .interests li { display: grid; gap: 2px; }
+  .interests h3 {
+    margin: 0;
+    font-size: var(--type-sub);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .interests p { margin: 0; color: var(--muted); max-width: 62ch; }
+
+  /* ============================================================
+     Site header
+     ============================================================ */
+  .site-header {
+    border-bottom: 1px solid var(--separator);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s5);
+    min-height: 60px;
+    flex-wrap: wrap;
+  }
+  .site-name {
+    font-size: var(--type-body);
+    font-weight: 640;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .site-name:hover { color: var(--accent-hover); }
+  .header-actions { display: flex; align-items: center; gap: var(--s5); }
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--s4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--type-meta);
+  }
+  .site-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: var(--s3) 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+  }
+  .site-nav a:hover { color: var(--text); }
+  .theme-toggle {
+    width: 34px; height: 34px;
+    display: grid; place-items: center;
+    border: 1px solid var(--border-control);
+    border-radius: 50%;
+    background: var(--surface-strong);
+    color: var(--muted);
+    font: inherit;
+    font-size: var(--type-meta);
+    cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent-hover); }
+
+  /* ============================================================
+     Intro: name, role, claim. Nothing precedes them.
+     ============================================================ */
+  .intro { padding: var(--s8) 0 var(--s7); }
+  .intro-grid {
+    display: flex;
+    gap: var(--s7);
+    align-items: flex-start;
+  }
+  .intro-main { min-width: 0; flex: 1 1 auto; }
+
+  h1 {
+    margin: 0 0 var(--s3);
+    font-size: clamp(1.75rem, 4vw, var(--type-title));
+    font-weight: 660;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  /* The shell is wide for records and lists, so every run of prose carries its
+     own measure. A wider page must not become a wider line of reading text. */
+  .role {
+    margin: 0 0 var(--s5);
+    font-size: var(--type-body);
+    color: var(--muted);
+    max-width: 62ch;
+  }
+  .role a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .role a:hover { color: var(--accent-hover); }
+
+  .claim {
+    margin: 0 0 var(--s6);
+    font-size: var(--type-sub);
+    font-weight: 480;
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+    max-width: 34ch;
+    text-wrap: pretty;
+  }
+
+  .contact {
+    margin: 0;
+    font-size: var(--type-body);
+    color: var(--text);
+  }
+  .contact a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .contact a:hover { color: var(--accent-hover); }
+  .links {
+    margin: 0;
+    font-size: var(--type-body);
+  }
+  .links a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .links a:hover { color: var(--accent-hover); }
+  .sep { color: var(--muted); padding: 0 var(--s3); }
+  /* An inline field label naming what the value is. Not a section eyebrow:
+     it does not restate a heading, it identifies the string beside it. */
+  .contact-label {
+    display: block;
+    font-size: var(--type-meta);
+    font-weight: 620;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--s2);
+  }
+
+  .intro-aside {
+    flex: 0 0 var(--aside);
+    display: grid;
+    gap: var(--s4);
+    justify-items: start;
+  }
+  .portrait-slot {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px dashed var(--border-control);
+    border-radius: var(--radius-sm);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: var(--s3);
+    font-size: var(--type-meta);
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  /* ============================================================
+     Sections
+     ============================================================ */
+  section.band { padding: var(--s7) 0; border-top: 1px solid var(--separator); }
+
+  h2 {
+    margin: 0 0 var(--s6);
+    font-size: var(--type-section);
+    font-weight: 640;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+  h3 {
+    margin: 0 0 4px;
+    font-size: var(--type-body);
+    font-weight: 620;
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  /* Research areas. No numbering: three areas are not a sequence. */
+  .areas { display: grid; gap: var(--s5); margin: 0; }
+  .area { display: grid; gap: 2px; }
+  .area h3 { font-size: var(--type-sub); font-weight: 600; margin: 0; }
+  .area p { margin: 0; color: var(--muted); max-width: 62ch; }
+
+  /* Record list: date rail plus copy. One treatment, reused everywhere. */
+  .records { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s5); }
+  .record {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: var(--s5);
+    align-items: baseline;
+  }
+  .record-date {
+    font-size: var(--type-meta);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+  }
+  .record p { margin: 0; color: var(--muted); font-size: var(--type-meta); }
+  .record-copy { min-width: 0; max-width: 74ch; }
+  .note {
+    margin: var(--s5) 0 0;
+    font-size: var(--type-meta);
+    color: var(--muted);
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--separator);
+    padding: var(--s6) 0 var(--s7);
+    font-size: var(--type-meta);
+    color: var(--muted);
+  }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); }
+  .site-footer a { color: var(--muted); }
+  .site-footer a:hover { color: var(--accent-hover); }
+
+  /* ============================================================
+     Appendix. Not part of the design; it measures the design.
+     ============================================================ */
+  .appendix {
+    padding: var(--s8) var(--s5) var(--s9);
+    background: var(--demo-ground);
+    color: var(--demo-text);
+  }
+  .appendix-inner { max-width: var(--shell); margin: 0 auto; }
+  .appendix h2 {
+    font-size: var(--type-sub);
+    color: var(--text);
+    margin-bottom: var(--s5);
+  }
+  .appendix h3 {
+    font-size: var(--type-meta);
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+    color: var(--demo-text);
+    margin: var(--s7) 0 var(--s4);
+  }
+  .appendix p { max-width: 68ch; font-size: var(--type-meta); }
+
+  .scale { display: grid; gap: var(--s4); }
+  .scale-row {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: var(--s5);
+    align-items: baseline;
+    padding-bottom: var(--s4);
+    border-bottom: 1px solid var(--separator);
+  }
+  .scale-meta {
+    font-size: var(--type-meta);
+    font-variant-numeric: tabular-nums;
+    color: var(--demo-text);
+  }
+  .scale-meta code {
+    display: block;
+    color: var(--text);
+    font-size: var(--type-meta);
+  }
+  .scale-sample { color: var(--text); line-height: 1.2; letter-spacing: -0.02em; }
+
+  .compare { display: flex; flex-wrap: wrap; gap: var(--s5); }
+  .compare-cell {
+    display: grid;
+    gap: var(--s3);
+    padding: var(--s5);
+    background: var(--canvas);
+    border: 1px solid var(--separator);
+    border-radius: var(--radius-sm);
+  }
+  .compare-cell > span {
+    font-size: var(--type-meta);
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+  .btn-old {
+    font-size: var(--type-meta);
+    font-weight: 560;
+    padding: 9px 15px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #d8dbe0;
+    background: #ffffff;
+    color: #1d1d1f;
+  }
+  :root[data-theme="dark"] .btn-old { border-color: #343841; background: #202329; color: #f5f5f7; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .btn-old {
+      border-color: #343841; background: #202329; color: #f5f5f7;
+    }
+  }
+  .btn-new {
+    font-size: var(--type-meta);
+    font-weight: 560;
+    padding: 9px 15px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-control);
+    background: var(--surface-strong);
+    color: var(--text);
+  }
+
+  .killed { display: grid; gap: var(--s3); margin: 0; padding: 0; list-style: none; }
+  .killed li {
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
+    gap: var(--s3);
+    font-size: var(--type-meta);
+    max-width: 68ch;
+  }
+  .killed span[aria-hidden] { color: var(--accent); font-weight: 700; }
+  .killed strong { color: var(--text); font-weight: 620; }
+
+  @media (max-width: 720px) {
+    .intro-grid { flex-direction: column-reverse; align-items: stretch; }
+    .intro-aside { flex: none; }
+    .portrait-slot { width: 132px; }
+  }
+
+  @media (max-width: 640px) {
+    .record { grid-template-columns: 1fr; gap: 2px; }
+    .scale-row { grid-template-columns: 1fr; gap: var(--s2); }
+    .intro { padding-top: var(--s6); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="strip">
+  <div class="strip-inner">
+    <p>
+      <strong>Design demo — not the live site.</strong>
+      All three pages under the rewritten <code>DESIGN_SYSTEM.md</code>: M4.2
+      phases B, D, E, and F applied together. The navigation works; the real site
+      uses separate Jekyll pages rather than this page switching. The claim
+      sentence is candidate 1 of three and is not chosen. The portrait is an
+      empty slot, and Hobbies lists interest names only, because neither the
+      image nor the hobby content exists yet — rule 5 forbids shipping a
+      placeholder in their place. The three hobby descriptions and the two News
+      entries were written for this demo — the hobby lines say so on their face
+      and must not ship; verify the News dates before they go live.
+    </p>
+  </div>
+</div>
+
+<div class="frame">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="site-name" href="#">Sangyeon Cho</a>
+      <div class="header-actions">
+        <nav aria-label="Primary navigation">
+          <ul class="site-nav">
+            <li><a href="#research-interests">Research interests</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#research-projects">Research projects</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" type="button" id="themeToggle"
+          aria-label="Change color appearance" title="Change color appearance">
+          <span aria-hidden="true" id="themeIcon">◐</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="shell intro-grid">
+        <div class="intro-main">
+          <h1>Sangyeon Cho</h1>
+          <p class="role">
+            Causality Lab, <a href="#">Graduate School of Data Science, Seoul
+            National University</a>, with <a href="#">Sanghack Lee</a>.
+            Continuing in the lab as a Ph.D. student from September 2026.
+          </p>
+          <p class="claim">
+            I study how much we can trust a treatment-effect prediction for one
+            individual — and where that uncertainty comes from.
+          </p>
+          <p class="contact">
+            <span class="contact-label">Contact</span>
+            csymhph@gmail.com
+          </p>
+        </div>
+        <div class="intro-aside">
+          <div class="portrait-slot">Portrait<br>slot</div>
+          <p class="links">
+            <a href="#">CV</a><span class="sep" aria-hidden="true">·</span><a href="#">LinkedIn</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell" id="research-interests">
+        <h2>Research interests</h2>
+        <div class="areas">
+          <div class="area">
+            <h3>Causal inference</h3>
+            <p>Reasoning about interventions, counterfactuals, and causal structure.</p>
+          </div>
+          <div class="area">
+            <h3>Uncertainty quantification</h3>
+            <p>Conformal prediction and transparent uncertainty measures for
+              individualized treatment effects.</p>
+          </div>
+          <div class="area">
+            <h3>Time-series analysis</h3>
+            <p>Longitudinal settings with evolving treatments, outcomes, and
+              confounding factors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell" id="works">
+        <h2>Works</h2>
+        <ol class="records">
+          <li class="record">
+            <span class="record-date">In progress</span>
+            <div class="record-copy">
+              <h3>Conformal Meta-learner for Individual Treatment Effects under
+                Unmeasured Confounding</h3>
+              <p>Jaeho Jeong, Sangyeon Cho, and Sanghack Lee†</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">Under review</span>
+            <div class="record-copy">
+              <h3>Decomposing Conformal Uncertainty: Calibration- and
+                Instance-Driven Feature Attribution</h3>
+              <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee†</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">Under review</span>
+            <div class="record-copy">
+              <h3>OPERA-S: Deterministic Tail Safety in Ensemble Off-Policy
+                Evaluation</h3>
+              <p>Hyunwoo Kim, Gyeongchan Han, Bogeun Kim, Serjin Kim, Sangyeon
+                Cho, Junha Ham, Jaehyeok Shin, and Sanghack Lee†</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">ICML 2026 (WS)</span>
+            <div class="record-copy">
+              <h3>A Tale of Two Uncertainties: Global–Local Attribution for
+                Conformal Prediction</h3>
+              <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† ·
+                2nd Workshop on Epistemic Intelligence in Machine Learning
+                (EIML), non-archival · Spotlight talk</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">Aug 2026</span>
+            <div class="record-copy">
+              <h3>Conformal Prediction for Individual Treatment Effects under
+                Time-Varying Treatment Strategies</h3>
+              <p>Sangyeon Cho · Master of Data Science, Seoul National University</p>
+            </div>
+          </li>
+        </ol>
+        <p class="note">* Equal contribution. † Corresponding author.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell" id="research-projects">
+        <h2>Research projects</h2>
+        <ol class="records">
+          <li class="record">
+            <span class="record-date">2026–Present</span>
+            <div class="record-copy">
+              <h3>AI Platform for Predicting Drug Efficacy and Side Effects from
+                Integrated Medical and Multi-omics Data</h3>
+              <p>Participant · Ministry of Food and Drug Safety</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">2025–Present</span>
+            <div class="record-copy">
+              <h3>Advancing Credit Decision Making</h3>
+              <p>Working-level lead · Industry–academia collaboration, AFINIT</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">2025</span>
+            <div class="record-copy">
+              <h3>Metabolomic Big Data Analysis</h3>
+              <p>Participant · Ministry of Food and Drug Safety</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell" id="news">
+        <h2>News</h2>
+        <ol class="records">
+          <li class="record">
+            <time class="record-date" datetime="2026-08">Aug 2026</time>
+            <div class="record-copy">
+              <h3>Completed the Master of Data Science at SNU</h3>
+            </div>
+          </li>
+          <li class="record">
+            <time class="record-date" datetime="2026-07">Jul 2026</time>
+            <div class="record-copy">
+              <h3>Spotlight talk at the EIML workshop, ICML 2026</h3>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell" id="education">
+        <h2>Education</h2>
+        <ol class="records">
+          <li class="record">
+            <span class="record-date">Sep 2026–</span>
+            <div class="record-copy">
+              <h3>Ph.D. in Data Science</h3>
+              <p>Seoul National University</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">Aug 2026</span>
+            <div class="record-copy">
+              <h3>Master of Data Science</h3>
+              <p>Seoul National University</p>
+            </div>
+          </li>
+          <li class="record">
+            <span class="record-date">2024</span>
+            <div class="record-copy">
+              <h3>B.A. in Economics</h3>
+              <p>Seoul National University</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="shell" id="hobbies">
+        <h2>Hobbies</h2>
+        <ul class="interests">
+          <li>
+            <h3>Calligraphy</h3>
+            <p>Placeholder line, about this length, for the description that
+              will be written here.</p>
+          </li>
+          <li>
+            <h3>Piano</h3>
+            <p>Placeholder line, deliberately a little longer than the one above
+              so the layout is tested against varied length.</p>
+          </li>
+          <li>
+            <h3>Baseball</h3>
+            <p>Placeholder line, a short one.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>Sangyeon Cho</span>
+      <span>csymhph@gmail.com</span>
+      <a href="#">CV</a>
+      <a href="#">LinkedIn</a>
+      <span>Updated August 2026</span>
+    </div>
+  </footer>
+</div>
+
+<section class="appendix">
+  <div class="appendix-inner">
+    <h2>What the demo is testing</h2>
+    <p>
+      The two measurable changes from phase B are visible below at their real
+      values, so the scale and the boundary contrast can be judged directly
+      rather than trusted.
+    </p>
+
+    <h3>Five type roles</h3>
+    <div class="scale">
+      <div class="scale-row">
+        <div class="scale-meta">36px / 2.25rem<code>--type-title</code></div>
+        <div class="scale-sample" style="font-size: var(--type-title); font-weight: 660;">Sangyeon Cho</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">28px / 1.75rem<code>--type-section</code></div>
+        <div class="scale-sample" style="font-size: var(--type-section); font-weight: 640;">Research interests</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">22px / 1.375rem<code>--type-sub</code></div>
+        <div class="scale-sample" style="font-size: var(--type-sub); font-weight: 600;">Causal inference</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">17px / 1.0625rem<code>--type-body</code></div>
+        <div class="scale-sample" style="font-size: var(--type-body); font-weight: 400; letter-spacing: 0;">Reasoning about interventions and counterfactuals.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">14px / 0.875rem<code>--type-meta</code></div>
+        <div class="scale-sample" style="font-size: var(--type-meta); font-weight: 400; letter-spacing: 0;">2026–Present · Ministry of Food and Drug Safety</div>
+      </div>
+    </div>
+    <p>
+      Ratios run 1.21 to 1.29. The live site currently has 31 font-size
+      declarations across about 25 distinct values, including five small sizes
+      between 0.86 and 0.95rem that no reader can tell apart, and page titles up
+      to 96px.
+    </p>
+
+    <h3>Boundary contrast</h3>
+    <div class="compare">
+      <div class="compare-cell">
+        <span>Now · 1.34:1 · fails 1.4.11</span>
+        <button class="btn-old" type="button" aria-label="Theme toggle, current border">◐</button>
+      </div>
+      <div class="compare-cell">
+        <span>Demo · 3.33:1 · passes</span>
+        <button class="btn-new" type="button" aria-label="Theme toggle, demo border">◐</button>
+      </div>
+    </div>
+    <p>
+      The theme toggle is now the only control whose boundary is its sole
+      indicator, since the site carries no buttons. The decorative separators
+      between sections stay at the old subtle value, which is why the page has
+      not become heavier. Switch the theme with the toggle in the header to check
+      both.
+    </p>
+
+    <h3>What was removed, and why</h3>
+    <ul class="killed">
+      <li><span aria-hidden="true">−</span><span><strong>The 01 / 02 / 03 markers.</strong> Three research areas are not a sequence, so the numbering asserted an order that does not exist.</span></li>
+      <li><span aria-hidden="true">−</span><span><strong>The profile card.</strong> Current, At, and Based restated the introduction sentence for sentence.</span></li>
+      <li><span aria-hidden="true">−</span><span><strong>The eyebrow above the name.</strong> It named a fourth research area, Explanation, that appears nowhere else on the site.</span></li>
+      <li><span aria-hidden="true">−</span><span><strong>The blog nav entry, the writing section, and the post counter.</strong> No route now leads to an empty archive.</span></li>
+      <li><span aria-hidden="true">−</span><span><strong>Separate Publications and Hobbies pages.</strong> One document now, with an anchor in the navigation for each of its six sections. This reverses M2&rsquo;s move to page-to-page navigation; four of the twelve surveyed sites navigate the same way, and one file is one place for a fact to drift.</span></li>
+      <li><span aria-hidden="true">−</span><span><strong>The 96px page title.</strong> Twelve of twelve surveyed researcher sites have no display type at all.</span></li>
+    </ul>
+
+    <h3>Still open</h3>
+    <ul class="killed">
+      <li><span aria-hidden="true">?</span><span><strong>The claim.</strong> Shown here as candidate 1 of the three recorded in the design system. Candidates 2 and 3 centre the thesis and the attribution papers instead.</span></li>
+      <li><span aria-hidden="true">−</span><span><strong>&ldquo;Incoming&rdquo; as the whole identity.</strong> The live site says incoming Ph.D. student four times and frames the Causality Lab affiliation as not yet started. The lab membership is current; only the degree programme changes in September 2026.</span></li>
+      <li><span aria-hidden="true">?</span><span><strong>Portrait.</strong> An empty slot until an image file exists. Rule 5 forbids a placeholder in its place.</span></li>
+      <li><span aria-hidden="true">?</span><span><strong>CV and LinkedIn targets.</strong> Both links are shown because both are intended, but neither has a destination yet. On the live site they appear only once their targets exist. Google Scholar and GitHub are deliberately not used, against the survey finding that Scholar appears on three of four peer sites.</span></li>
+      <li><span aria-hidden="true">?</span><span><strong>Hobbies content.</strong> Three interests, with descriptions that state outright that they are placeholders. They exist so the section&rsquo;s shape can be judged and must be replaced before this ships — the live site&rsquo;s current card copy fails rule 5 the same way. Video games was dropped at the owner&rsquo;s request.</span></li>
+      <li><span aria-hidden="true">?</span><span><strong>Home &ldquo;Works&rdquo; versus the Publications page.</strong> With four items, the two lists are currently identical. Either Home shows fewer, or it links out instead of repeating.</span></li>
+      <li><span aria-hidden="true">?</span><span><strong>News.</strong> Shown with two real dated items instead of the single &ldquo;Opened this website&rdquo; entry, to test whether the section earns its place. It is the mechanism that makes maintenance visible.</span></li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var icon = document.getElementById('themeIcon');
+    var KEY = 'demo-theme';
+
+    function read() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+    function write(v) {
+      try { localStorage.setItem(KEY, v); } catch (e) { /* storage unavailable */ }
+    }
+    function paint(v) {
+      if (v === 'dark' || v === 'light') {
+        root.setAttribute('data-theme', v);
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      icon.textContent = v === 'dark' ? '◑' : v === 'light' ? '◐' : '◐';
+    }
+
+    paint(read());
+
+
+    btn.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme');
+      var next;
+      if (!current) {
+        var systemDark = window.matchMedia
+          && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        next = systemDark ? 'light' : 'dark';
+      } else {
+        next = current === 'dark' ? 'light' : 'dark';
+      }
+      write(next);
+      paint(next);
+    });
+  })();
+</script>
