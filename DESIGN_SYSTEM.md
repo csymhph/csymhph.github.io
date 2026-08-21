@@ -338,8 +338,10 @@ may not.
 
 **The public site is one page.** Decided 2026-08-21 from the demo. Every section
 lives on the home page, and navigation entries are in-page anchors rather than
-links to separate pages. Navigation is `Works` and `Hobbies`; the site name at
-the leading edge returns to the top. The blog is dormant; see below.
+links to separate pages. Navigation links every substantive section: `Research
+interests`, `Works`, `Research projects`, `News`, `Education`, and `Hobbies`;
+the site name at the leading edge returns to the top. The blog is dormant; see
+below.
 
 This reverses M2, which replaced anchor scrolling with page-to-page navigation.
 Recorded so the reversal is not mistaken for drift. Two reasons it is now the

@@ -671,7 +671,12 @@ pre code {
   }
 
   .header-actions {
+    width: 100%;
     gap: var(--s3);
+  }
+
+  .site-nav {
+    flex: 1 1 auto;
   }
 
   .intro {

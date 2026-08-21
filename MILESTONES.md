@@ -288,10 +288,11 @@ is recorded in `DESIGN_SYSTEM.md` and can be added with the config key.
 - [x] Collapse the public site to one page. Fold `publications.md` and
       `hobbies.md` into sections of `index.md`, ordered per the Home list in
       `DESIGN_SYSTEM.md`, with Hobbies last.
-- [x] Replace the navigation with in-page anchors: `Works` and `Hobbies`, with
-      the site name linking to the top. Labels must match the section headings
-      exactly. Drop the current-page state from `_includes/header.html`; there is
-      one page.
+- [x] Replace the navigation with in-page anchors for every substantive section:
+      `Research interests`, `Works`, `Research projects`, `News`, `Education`,
+      and `Hobbies`, with the site name linking to the top. Labels must match the
+      section headings exactly. Drop the current-page state from
+      `_includes/header.html`; there is one page.
 - [x] Add `scroll-margin-top` to anchor targets and apply smooth scrolling only
       under `prefers-reduced-motion: no-preference`. Add no scroll-spy script.
 - [x] Do not retain or redirect `/publications/` and `/hobbies/`; the owner does
