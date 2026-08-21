@@ -351,7 +351,8 @@ action stays absent until its target exists.
 
 ### Phase F — Publications and Hobbies
 
-- [x] Frame publications as selected work and state the short list plainly.
+- [x] Keep the Works list direct: no `Selected` qualifier and no introductory
+      sentence explaining that the visible list is short.
 - [x] Add per-entry links wherever a public artifact genuinely exists; add none
       where it does not.
 - [x] Remove the duplicated public research-areas surface by excluding the

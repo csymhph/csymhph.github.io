@@ -324,8 +324,13 @@ h3 {
 }
 
 .role {
-  margin: 0 0 var(--s5);
+  margin: 0 0 var(--s6);
   color: var(--muted);
+}
+
+.role strong {
+  color: var(--text);
+  font-weight: 650;
 }
 
 .role a,
@@ -335,19 +340,6 @@ h3 {
 
 .role a:hover {
   color: var(--accent-hover);
-}
-
-.claim {
-  margin: 0 0 var(--s6);
-  font-size: var(--type-sub);
-  font-weight: 480;
-  letter-spacing: -0.012em;
-  line-height: 1.45;
-}
-
-.section-intro {
-  margin: calc(-1 * var(--s3)) 0 var(--s5);
-  color: var(--muted);
 }
 
 .contact,

@@ -231,28 +231,15 @@
     font-weight: 660;
     letter-spacing: -0.025em;
     line-height: 1.12;
-    text-wrap: balance;
   }
-  /* The shell is wide for records and lists, so every run of prose carries its
-     own measure. A wider page must not become a wider line of reading text. */
   .role {
-    margin: 0 0 var(--s5);
+    margin: 0 0 var(--s6);
     font-size: var(--type-body);
     color: var(--muted);
-    max-width: 62ch;
   }
   .role a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   .role a:hover { color: var(--accent-hover); }
-
-  .claim {
-    margin: 0 0 var(--s6);
-    font-size: var(--type-sub);
-    font-weight: 480;
-    line-height: 1.45;
-    letter-spacing: -0.012em;
-    max-width: 44ch;
-    text-wrap: pretty;
-  }
+  .role strong { color: var(--text); font-weight: 650; }
 
   .contact {
     margin: 0;
@@ -525,13 +512,10 @@
         <div class="intro-main">
           <h1>Sangyeon Cho</h1>
           <p class="role">
-            Causality Lab, <a href="#">Graduate School of Data Science, Seoul
-            National University</a>, with <a href="#">Sanghack Lee</a>.
-            Continuing in the lab as a Ph.D. student from September 2026.
-          </p>
-          <p class="claim">
-            I study how machine learning can support reliable decision-making
-            in complex real-world settings.
+            I am a Ph.D. student in Data Science at <a href="#">Seoul National
+            University</a>, advised by <a href="#">Professor Sanghack Lee</a> in
+            the Causality Lab. I study <strong>how machine learning can support
+            reliable decision-making in complex real-world settings.</strong>
           </p>
           <p class="contact">
             <span class="contact-label">Contact</span>
@@ -614,11 +598,11 @@
             </div>
           </li>
           <li class="record">
-            <span class="record-date">Aug 2026</span>
+            <span class="record-date">Master’s thesis</span>
             <div class="record-copy">
               <h3>Conformal Prediction for Individual Treatment Effects under
                 Time-Varying Treatment Strategies</h3>
-              <p>Sangyeon Cho · Master of Data Science, Seoul National University</p>
+              <p>Sangyeon Cho · Seoul National University, 2026</p>
             </div>
           </li>
         </ol>
@@ -663,14 +647,15 @@
           <li class="record">
             <time class="record-date" datetime="2026-08">Aug 2026</time>
             <div class="record-copy">
-              <h3>I completed my Master of Data Science at SNU!</h3>
-              <p>Many thanks to my advisor, Professor Sanghack Lee, and all my collaborators.</p>
+              <h3>I completed my Master of Data Science at SNU—many thanks to my
+                advisor, Professor Sanghack Lee, and all my collaborators!</h3>
             </div>
           </li>
           <li class="record">
             <time class="record-date" datetime="2026-07">Jul 2026</time>
             <div class="record-copy">
-              <h3>Spotlight talk at the EIML workshop, ICML 2026</h3>
+              <h3>I gave a spotlight talk on our work at the EIML workshop at
+                ICML 2026!</h3>
             </div>
           </li>
         </ol>

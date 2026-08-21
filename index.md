@@ -8,12 +8,11 @@ permalink: /
     <div class="intro-main">
       <h1 id="intro-title">{{ site.title | escape }}</h1>
       <p class="role">
-        Causality Lab,
-        <a href="https://gsds.snu.ac.kr/">Graduate School of Data Science, Seoul National University</a>,
-        with <a href="https://www.sanghacklee.me/">Sanghack Lee</a>.
-        Continuing in the lab as a Ph.D. student from September 2026.
+        I am a Ph.D. student in Data Science at
+        <a href="https://gsds.snu.ac.kr/">Seoul National University</a>, advised by
+        <a href="https://www.sanghacklee.me/">Professor Sanghack Lee</a> in the Causality Lab.
+        I study <strong>{{ site.claim | remove_first: 'I study ' }}</strong>
       </p>
-      <p class="claim">{{ site.claim }}</p>
       <p class="contact">
         <span class="contact-label">Contact</span>
         {{ site.email | escape }}
@@ -51,7 +50,6 @@ permalink: /
 <section class="band" id="works" aria-labelledby="works-title">
   <div class="shell">
     <h2 id="works-title">Works</h2>
-    <p class="section-intro">A short selection of current work, workshop presentations, and my master's thesis.</p>
     <ol class="records" aria-label="Works">
       <li class="record">
         <span class="record-date">In progress</span>
@@ -82,10 +80,10 @@ permalink: /
         </div>
       </li>
       <li class="record">
-        <span class="record-date">Aug 2026</span>
+        <span class="record-date">Master’s thesis</span>
         <div class="record-copy">
           <h3>Conformal Prediction for Individual Treatment Effects under Time-Varying Treatment Strategies</h3>
-          <p>Sangyeon Cho · Master of Data Science, Seoul National University</p>
+          <p>Sangyeon Cho · Seoul National University, 2026</p>
         </div>
       </li>
     </ol>
@@ -129,13 +127,12 @@ permalink: /
       <li class="record">
         <time class="record-date" datetime="2026-08">Aug 2026</time>
         <div class="record-copy">
-          <h3>I completed my Master of Data Science at SNU!</h3>
-          <p>Many thanks to my advisor, Professor Sanghack Lee, and all my collaborators.</p>
+          <h3>I completed my Master of Data Science at SNU—many thanks to my advisor, Professor Sanghack Lee, and all my collaborators!</h3>
         </div>
       </li>
       <li class="record">
         <time class="record-date" datetime="2026-07">Jul 2026</time>
-        <div class="record-copy"><h3>Spotlight talk at the EIML workshop, ICML 2026</h3></div>
+        <div class="record-copy"><h3>I gave a spotlight talk on our work at the EIML workshop at ICML 2026!</h3></div>
       </li>
     </ol>
   </div>

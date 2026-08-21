@@ -224,8 +224,8 @@ Current heading set:
 | Degrees | Education |
 
 Headings state what the section is and nothing more. No `Selected`, no curation
-adjective, no scope qualifier. Rule 7 already frames the list as selected in
-prose where that needs saying; the heading is not the place for it.
+adjective, no scope qualifier. The short list is self-evident and carries no
+introductory sentence explaining its scope.
 
 Heading vocabulary is the owner's voice. Nothing in this table is inferred from
 the site survey or proposed on design grounds — record what the owner asked for
