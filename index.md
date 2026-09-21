@@ -20,7 +20,9 @@ permalink: /
     </div>
     {% if site.portrait and site.portrait != empty %}
     <aside class="intro-aside">
-      <img class="portrait" src="{{ site.portrait | relative_url }}" alt="Portrait of {{ site.title | escape }}" width="200" height="200">
+      <div class="portrait">
+        <img src="{{ site.portrait | relative_url }}" alt="Portrait of {{ site.title | escape }}" width="200" height="200">
+      </div>
       {% if site.cv_url and site.cv_url != empty or site.linkedin_url and site.linkedin_url != empty %}
       <p class="profile-links">
         {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
