@@ -54,10 +54,10 @@ permalink: /
     <h2 id="works-title">Works</h2>
     <ol class="records" aria-label="Works">
       <li class="record">
-        <span class="record-date">In progress</span>
+        <span class="record-date">ICML 2026 (WS)</span>
         <div class="record-copy">
-          <h3>Conformal Meta-learner for Individual Treatment Effects under Unmeasured Confounding</h3>
-          <p>Jaeho Jeong, Sangyeon Cho, Ji Won Bae, and Sanghack Lee†</p>
+          <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
         </div>
       </li>
       <li class="record">
@@ -75,10 +75,10 @@ permalink: /
         </div>
       </li>
       <li class="record">
-        <span class="record-date">ICML 2026 (WS)</span>
+        <span class="record-date">In progress</span>
         <div class="record-copy">
-          <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
+          <h3>Conformal Meta-learner for Individual Treatment Effects under Unmeasured Confounding</h3>
+          <p>Jaeho Jeong, Sangyeon Cho, Ji Won Bae, and Sanghack Lee†</p>
         </div>
       </li>
       <li class="record">
