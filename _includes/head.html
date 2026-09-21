@@ -7,6 +7,6 @@
   <script src="{{ '/assets/navigation.js' | relative_url }}"></script>
   {%- endif -%}
   <script src="{{ '/assets/theme.js' | relative_url }}"></script>
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   {%- feed_meta -%}
 </head>
