@@ -1,5 +1,6 @@
 title: Sangyeon Cho
 email: csymhph@gmail.com
+academic_email: csymhph@snu.ac.kr
 claim: &site_claim I study how machine learning can support reliable decision-making in complex real-world settings.
 description: *site_claim
 theme: minima
@@ -14,19 +15,16 @@ linkedin_url: ""
 research_interests:
   - name: Causal inference
     description: >-
-      Whether an action changes an outcome, not merely whether it predicts one:
-      interventions, counterfactuals, and causal structure, including
-      longitudinal settings where treatments, outcomes, and confounding evolve
-      over time.
+      Clarifying the assumptions under which causal conclusions are justified,
+      including in longitudinal settings with time-varying treatments and confounding.
   - name: Uncertainty quantification
     description: >-
-      How wrong a prediction can be, and the guarantees that make it safe to act
-      on. Conformal prediction and distribution-free bounds for individualized
-      treatment effects.
+      Characterizing uncertainty in causal estimates and predictions to inform
+      decisions about action, deferral, or further information.
   - name: Explainability
     description: >-
-      Why a model reached a prediction, and what a decision can be defended with.
-      Attribution for predictions and for the uncertainty attached to them.
+      Attributing predictions and their uncertainty to features, with a focus on
+      calibration- and instance-driven sources of conformal uncertainty.
 # Build Settings
 markdown: kramdown
 # remote_theme: "mmistakes/minimal-mistakes"

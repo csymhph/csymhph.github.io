@@ -422,6 +422,8 @@ sentence for sentence carries no information and does not belong.
 
 ### Hobbies
 
+- Temporarily hidden with its navigation item at the owner's request on
+  2026-09-21. Preserve the source content; the following rules apply when restored.
 - The last section on the page, not a separate page. Same type and color system,
   warmer prose permitted.
 - Real content only. The four interests currently appear as names alone, because

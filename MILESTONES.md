@@ -369,13 +369,16 @@ Piano, and Baseball. No descriptive copy was invented.
 
 ### Content TODOs
 
-- [ ] **Research interests:** Revisit the wording and substance of all three
-      descriptions in a dedicated copy pass with the owner. This revision was
-      explicitly deferred on 2026-08-21; do not rewrite them incidentally during
-      unrelated site work.
-- [ ] **Research projects:** After the contract is executed, add the new AFINIT
-      project expected to begin in October 2026. Do not publish it before
-      contract execution.
+- [x] **Research interests:** Completed the owner-approved copy pass locally on
+      2026-09-21, aligning the descriptions with the current CV while retaining
+      causal inference, uncertainty quantification, and explainability.
+- [x] **Research projects:** Added the new AFINIT project's current CV title,
+      `2026–Present` participation period, and Project Team Lead role. On
+      2026-09-21 the owner explicitly approved publication, superseding the
+      earlier wait-for-contract condition. Final contract confirmation remains
+      pending; this approval is not recorded as verified contract execution.
+- [x] **Hobbies:** Temporarily hid the section and its navigation item at the
+      owner's request on 2026-09-21, preserving both in Jekyll comments.
 
 ### Phase G — Validation and restraint pass
 

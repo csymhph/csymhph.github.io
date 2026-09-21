@@ -15,7 +15,7 @@ permalink: /
       </p>
       <p class="contact">
         <span class="contact-label">Contact</span>
-        {{ site.email | escape }}
+        {{ site.email | escape }} · {{ site.academic_email | escape }}
       </p>
     </div>
     {% if site.portrait and site.portrait != empty %}
@@ -57,14 +57,14 @@ permalink: /
         <span class="record-date">In progress</span>
         <div class="record-copy">
           <h3>Conformal Meta-learner for Individual Treatment Effects under Unmeasured Confounding</h3>
-          <p>Jaeho Jeong, Sangyeon Cho, and Sanghack Lee†</p>
+          <p>Jaeho Jeong, Sangyeon Cho, Ji Won Bae, and Sanghack Lee†</p>
         </div>
       </li>
       <li class="record">
         <span class="record-date">Under review</span>
         <div class="record-copy">
           <h3>Decomposing Conformal Uncertainty: Calibration- and Instance-Driven Feature Attribution</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee†</p>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee†</p>
         </div>
       </li>
       <li class="record">
@@ -100,6 +100,13 @@ permalink: /
       <li class="record">
         <span class="record-date">2026–Present</span>
         <div class="record-copy">
+          <h3>Causal Inference–Based Policy Optimization for Determining Unsecured Personal Loan Terms</h3>
+          <p>AFINIT · Project Team Lead</p>
+        </div>
+      </li>
+      <li class="record">
+        <span class="record-date">2026–Present</span>
+        <div class="record-copy">
           <h3>AI Platform for Predicting Drug Efficacy and Side Effects from Integrated Medical and Multi-omics Data</h3>
           <p>Ministry of Food and Drug Safety</p>
         </div>
@@ -109,6 +116,7 @@ permalink: /
         <div class="record-copy">
           <h3>Advancing Credit Decision Making</h3>
           <p>Industry–academia collaboration, AFINIT</p>
+          <p>Led the project and contributed to methodology and experiments. Outputs include the OPERA-S manuscript and Korean and corresponding PCT patent applications, with contributions as a co-inventor.</p>
         </div>
       </li>
       <li class="record">
@@ -116,6 +124,7 @@ permalink: /
         <div class="record-copy">
           <h3>Metabolomic Big Data Analysis</h3>
           <p>Ministry of Food and Drug Safety</p>
+          <p>Analyzed Korean cohort multi-omics data using causal inference, uncertainty quantification, and explainability, contributing to a co-first-authored manuscript on decomposing conformal uncertainty.</p>
         </div>
       </li>
     </ol>
@@ -126,6 +135,10 @@ permalink: /
   <div class="shell">
     <h2 id="news-title">News</h2>
     <ol class="records" aria-label="News">
+      <li class="record">
+        <time class="record-date" datetime="2026-09">Sep 2026</time>
+        <div class="record-copy"><h3>I began my Ph.D. in Data Science at Seoul National University.</h3></div>
+      </li>
       <li class="record">
         <time class="record-date" datetime="2026-08">Aug 2026</time>
         <div class="record-copy">
@@ -145,7 +158,7 @@ permalink: /
     <h2 id="education-title">Education</h2>
     <ol class="records" aria-label="Education">
       <li class="record">
-        <span class="record-date">Sep 2026–</span>
+        <span class="record-date">Sep 2026–Present</span>
         <div class="record-copy"><h3>Ph.D. in Data Science</h3><p>Seoul National University</p></div>
       </li>
       <li class="record">
@@ -153,13 +166,15 @@ permalink: /
         <div class="record-copy"><h3>Master of Data Science</h3><p>Seoul National University</p></div>
       </li>
       <li class="record">
-        <span class="record-date">2024</span>
+        <span class="record-date">Aug 2024</span>
         <div class="record-copy"><h3>B.A. in Economics</h3><p>Seoul National University</p></div>
       </li>
     </ol>
   </div>
 </section>
 
+{% comment %}Temporarily hidden at the owner's request on 2026-09-21; keep the content for restoration.{% endcomment %}
+{% comment %}
 <section class="band" id="hobbies" aria-labelledby="hobbies-title">
   <div class="shell">
     <h2 id="hobbies-title">Hobbies</h2>
@@ -170,3 +185,4 @@ permalink: /
     </ul>
   </div>
 </section>
+{% endcomment %}
