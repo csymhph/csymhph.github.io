@@ -124,7 +124,7 @@ permalink: /
         <div class="record-copy">
           <h3>Metabolomic Big Data Analysis</h3>
           <p>Ministry of Food and Drug Safety</p>
-          <p>Analyzed Korean cohort multi-omics data using causal inference, uncertainty quantification, and explainability, contributing to a co-first-authored manuscript on decomposing conformal uncertainty.</p>
+          <p>Analyzed Korean cohort multi-omics data using causal inference, uncertainty quantification, and explainability, contributing to a co-first-authored paper on decomposing conformal uncertainty.</p>
         </div>
       </li>
     </ol>
