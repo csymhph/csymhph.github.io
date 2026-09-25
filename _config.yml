@@ -1,7 +1,7 @@
 title: Sangyeon Cho
 email: csymhph@gmail.com
 academic_email: csymhph@snu.ac.kr
-claim: &site_claim I study how machine learning can support reliable decision-making in complex real-world settings.
+claim: &site_claim I am interested in how machine learning and causal understanding can inform real-world decision-making.
 description: *site_claim
 theme: minima
 url: "https://csymhph.github.io"

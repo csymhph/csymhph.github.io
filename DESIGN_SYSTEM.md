@@ -488,17 +488,17 @@ Failing any of these is a defect. Passing all of them is not success; criteria
 
 ## Open decisions
 
-### The claim sentence — decided 2026-08-21
+### The claim sentence — updated 2026-09-25
 
 Superseded 2026-08-21. Three earlier candidates — trust-centred,
 decision-centred, interpretation-centred — were discarded once the owner stated
 the actual through-line: the interest is **decision-making**, with an emphasis
 on reliable use in complex real-world settings.
 
-Final wording:
+Current owner-approved wording (2026-09-25):
 
-> I study how machine learning can support reliable decision-making in complex
-> real-world settings.
+> I am interested in how machine learning and causal understanding can inform
+> real-world decision-making.
 
 The sentence is deliberately broader than policy alone. The three research
 areas below explain what reliable support requires rather than turning the

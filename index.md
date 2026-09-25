@@ -11,7 +11,7 @@ permalink: /
         I am a Ph.D. student in Data Science at
         <a href="https://gsds.snu.ac.kr/">Seoul National University</a>, advised by
         <a href="https://www.sanghacklee.me/">Professor Sanghack Lee</a> in the Causality Lab.
-        I study <strong>{{ site.claim | remove_first: 'I study ' }}</strong>
+        I am interested in <strong>{{ site.claim | remove_first: 'I am interested in ' | escape }}</strong>
       </p>
       <p class="contact">
         <span class="contact-label">Contact</span>
@@ -50,7 +50,7 @@ permalink: /
         <span class="record-date">NeurIPS 2026</span>
         <div class="record-copy">
           <h3>Decomposing Conformal Uncertainty: Calibration- and Instance-Driven Feature Attribution</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee† · Conference on Neural Information Processing Systems (NeurIPS), 2026 · Accepted</p>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee† · Conference on Neural Information Processing Systems (NeurIPS), 2026</p>
         </div>
       </li>
       <li class="record">
@@ -128,6 +128,10 @@ permalink: /
   <div class="shell">
     <h2 id="news-title">News</h2>
     <ol class="records" aria-label="News">
+      <li class="record">
+        <time class="record-date" datetime="2026-09">Sep 2026</time>
+        <div class="record-copy"><h3>Our paper, “Decomposing Conformal Uncertainty,” was accepted to NeurIPS 2026.</h3></div>
+      </li>
       <li class="record">
         <time class="record-date" datetime="2026-09">Sep 2026</time>
         <div class="record-copy"><h3>I began my Ph.D. in Data Science at Seoul National University.</h3></div>
