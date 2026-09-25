@@ -502,8 +502,9 @@ Current owner-approved wording (2026-09-25):
 
 The sentence is deliberately broader than policy alone. The three research
 areas below explain what reliable support requires rather than turning the
-claim itself into a keyword list. It becomes the single source for the site
-description and the homepage introduction.
+claim itself into a keyword list. It is the single source for the homepage
+introduction. Owner decision 2026-09-25: keep the separate site description
+`Sangyeon Cho’s academic website` and the homepage tab title `Sangyeon Cho`.
 
 ### Research interests — current keyword-only presentation
 
