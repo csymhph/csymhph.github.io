@@ -130,7 +130,7 @@ permalink: /
     <ol class="records" aria-label="News">
       <li class="record">
         <time class="record-date" datetime="2026-09">Sep 2026</time>
-        <div class="record-copy"><h3>Our paper, “Decomposing Conformal Uncertainty,” was accepted to NeurIPS 2026.</h3></div>
+        <div class="record-copy"><h3>Our paper on decomposing conformal uncertainty has been accepted to NeurIPS 2026!</h3></div>
       </li>
       <li class="record">
         <time class="record-date" datetime="2026-09">Sep 2026</time>
