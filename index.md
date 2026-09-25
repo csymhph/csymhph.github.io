@@ -38,14 +38,7 @@ permalink: /
 <section class="band" id="research-interests" aria-labelledby="research-interests-title">
   <div class="shell">
     <h2 id="research-interests-title">Research interests</h2>
-    <div class="areas">
-      {% for area in site.research_interests %}
-      <div class="area">
-        <h3>{{ area.name }}</h3>
-        <p>{{ area.description }}</p>
-      </div>
-      {% endfor %}
-    </div>
+    <p>{{ site.research_interests | join: ' · ' | escape }}</p>
   </div>
 </section>
 

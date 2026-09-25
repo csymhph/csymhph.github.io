@@ -505,7 +505,17 @@ areas below explain what reliable support requires rather than turning the
 claim itself into a keyword list. It becomes the single source for the site
 description and the homepage introduction.
 
-### The three research areas
+### Research interests — current keyword-only presentation
+
+Decided 2026-09-25: replace the three descriptive blocks with only these six
+keywords, in order: **Causal Inference · Uncertainty Quantification ·
+Explainability · Decision-Making · Time-Varying Treatments · Conformal Prediction**.
+Render one ordinary paragraph with middle-dot separators and natural wrapping;
+no descriptions, cards, or chips. `_config.yml` remains the single source.
+The introduction claim is unchanged. This supersedes the earlier three-area
+presentation below, retained as historical rationale.
+
+### Historical three research areas
 
 Decided 2026-08-21: **causal inference, uncertainty quantification,
 explainability.** Time-series analysis was removed as a peer area.

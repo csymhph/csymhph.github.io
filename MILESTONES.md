@@ -369,9 +369,10 @@ Piano, and Baseball. No descriptive copy was invented.
 
 ### Content TODOs
 
-- [x] **Research interests:** Completed the owner-approved copy pass locally on
-      2026-09-21, aligning the descriptions with the current CV while retaining
-      causal inference, uncertainty quantification, and explainability.
+- [x] **Research interests:** Replaced descriptions with the six owner-approved
+      keywords on 2026-09-25: Causal Inference, Uncertainty Quantification,
+      Explainability, Decision-Making, Time-Varying Treatments, Conformal
+      Prediction. Plain paragraph, natural wrapping, no descriptive prose.
 - [x] **Research projects:** Added the new AFINIT project's current CV title,
       `2026–Present` participation period, and Project Team Lead role. On
       2026-09-21 the owner explicitly approved publication, superseding the
