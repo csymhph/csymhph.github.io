@@ -61,10 +61,10 @@ permalink: /
         </div>
       </li>
       <li class="record">
-        <span class="record-date">Under review</span>
+        <span class="record-date">NeurIPS 2026</span>
         <div class="record-copy">
           <h3>Decomposing Conformal Uncertainty: Calibration- and Instance-Driven Feature Attribution</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee†</p>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee† · Conference on Neural Information Processing Systems (NeurIPS), 2026 · Accepted</p>
         </div>
       </li>
       <li class="record">
