@@ -54,17 +54,17 @@ permalink: /
     <h2 id="works-title">Works</h2>
     <ol class="records" aria-label="Works">
       <li class="record">
-        <span class="record-date">ICML 2026 (WS)</span>
-        <div class="record-copy">
-          <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
-        </div>
-      </li>
-      <li class="record">
         <span class="record-date">NeurIPS 2026</span>
         <div class="record-copy">
           <h3>Decomposing Conformal Uncertainty: Calibration- and Instance-Driven Feature Attribution</h3>
           <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee† · Conference on Neural Information Processing Systems (NeurIPS), 2026 · Accepted</p>
+        </div>
+      </li>
+      <li class="record">
+        <span class="record-date">ICML 2026 (WS)</span>
+        <div class="record-copy">
+          <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
+          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
         </div>
       </li>
       <li class="record">
