@@ -201,8 +201,8 @@ Completion criteria:
 ## M4.2. Thesis-driven site rebuild
 
 **Status:** In progress — production translation and automated verification are
-complete; the portrait is connected, while the owner-supplied CV/LinkedIn
-targets and a manual browser pass remain
+complete; the portrait and CV are connected, while the owner-supplied LinkedIn
+target and a manual browser pass remain
 
 Objective:
 
@@ -346,7 +346,8 @@ Done when criteria 1 through 3 pass on a cold read-through and no section
 restates another.
 
 The owner-supplied portrait was connected on 2026-09-21.
-Gated: the LinkedIn profile URL and the CV PDF.
+The current CV PDF was connected on 2026-09-27 using the verified submission copy.
+Gated: the LinkedIn profile URL.
 Rule 5 forbids shipping any of these as a placeholder or a "coming soon", so each
 action stays absent until its target exists.
 
@@ -481,7 +482,7 @@ Completion criteria:
    release side.
 2. Manually review the implemented M4.2 page at the target widths, both
    appearances, keyboard focus, and 200% zoom. The portrait is connected;
-   supply CV and LinkedIn targets when ready. The templates omit missing targets.
+   the CV is connected; supply LinkedIn when ready. Missing targets stay omitted.
 3. Finish M4.1's manual browser pass and resolve the open reopened-graph display
    defect. Independent of M4.2 — the Studio is authoring tooling, not a public
    surface — so either order works.
