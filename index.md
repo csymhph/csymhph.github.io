@@ -42,6 +42,26 @@ permalink: /
   </div>
 </section>
 
+<section class="band" id="education" aria-labelledby="education-title">
+  <div class="shell">
+    <h2 id="education-title">Education</h2>
+    <ol class="records" aria-label="Education">
+      <li class="record">
+        <span class="record-date">Sep 2026–Present</span>
+        <div class="record-copy"><h3>Ph.D. in Data Science</h3><p>Seoul National University</p></div>
+      </li>
+      <li class="record">
+        <span class="record-date">Aug 2026</span>
+        <div class="record-copy"><h3>Master of Data Science</h3><p>Seoul National University</p></div>
+      </li>
+      <li class="record">
+        <span class="record-date">Aug 2024</span>
+        <div class="record-copy"><h3>B.A. in Economics</h3><p>Seoul National University</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
 <section class="band" id="works" aria-labelledby="works-title">
   <div class="shell">
     <h2 id="works-title">Works</h2>
@@ -145,26 +165,6 @@ permalink: /
       <li class="record">
         <time class="record-date" datetime="2026-07">Jul 2026</time>
         <div class="record-copy"><h3>I gave a spotlight talk on our work at the EIML workshop at ICML 2026!</h3></div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section class="band" id="education" aria-labelledby="education-title">
-  <div class="shell">
-    <h2 id="education-title">Education</h2>
-    <ol class="records" aria-label="Education">
-      <li class="record">
-        <span class="record-date">Sep 2026–Present</span>
-        <div class="record-copy"><h3>Ph.D. in Data Science</h3><p>Seoul National University</p></div>
-      </li>
-      <li class="record">
-        <span class="record-date">Aug 2026</span>
-        <div class="record-copy"><h3>Master of Data Science</h3><p>Seoul National University</p></div>
-      </li>
-      <li class="record">
-        <span class="record-date">Aug 2024</span>
-        <div class="record-copy"><h3>B.A. in Economics</h3><p>Seoul National University</p></div>
       </li>
     </ol>
   </div>

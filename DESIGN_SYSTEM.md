@@ -9,6 +9,10 @@ followed by `Keywords:` and the existing six keywords. This supersedes the older
 claim-first and keyword-only directions below. Title and SEO description remain
 independent and unchanged; the unused `claim` config field is removed.
 
+Latest layout decision (2026-09-28): visible sections and navigation run Research
+interests, Education, Works, Research projects, News after the introduction.
+Section contents and hidden Hobbies are unchanged.
+
 This document is the design authority for the public Jekyll site. Every rule
 below is derived from the thesis in the next section, or from the survey of
 comparable sites recorded further down. A rule with no derivation does not
@@ -324,6 +328,8 @@ may not.
 ### Interaction and motion
 
 - Touch targets at least 44×44px, or equivalent surrounding clickable area.
+  Owner-approved exception (2026-09-28): Contact's 20px LinkedIn icon has a
+  centered transparent 32×32px hit area, extending 6px without shifting layout.
 - Every interactive element has hover, active, and `:focus-visible` states.
 - Motion explains feedback or state change only: color, opacity, small
   transforms, 120–220ms. Under `prefers-reduced-motion: reduce`, remove
