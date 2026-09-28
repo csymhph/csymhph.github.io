@@ -10,7 +10,7 @@ claim-first and keyword-only directions below. Title and SEO description remain
 independent and unchanged; the unused `claim` config field is removed.
 
 Latest layout decision (2026-09-28): visible sections and navigation run Research
-interests, Education, Works, Research projects, News after the introduction.
+interests, News, Education, Works, Research projects after the introduction.
 Section contents and hidden Hobbies are unchanged.
 
 This document is the design authority for the public Jekyll site. Every rule

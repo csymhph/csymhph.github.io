@@ -42,6 +42,32 @@ permalink: /
   </div>
 </section>
 
+<section class="band" id="news" aria-labelledby="news-title">
+  <div class="shell">
+    <h2 id="news-title">News</h2>
+    <ol class="records" aria-label="News">
+      <li class="record">
+        <time class="record-date" datetime="2026-09">Sep 2026</time>
+        <div class="record-copy"><h3>Our paper on decomposing conformal uncertainty has been accepted to NeurIPS 2026!</h3></div>
+      </li>
+      <li class="record">
+        <time class="record-date" datetime="2026-09">Sep 2026</time>
+        <div class="record-copy"><h3>I began my Ph.D. in Data Science at Seoul National University.</h3></div>
+      </li>
+      <li class="record">
+        <time class="record-date" datetime="2026-08">Aug 2026</time>
+        <div class="record-copy">
+          <h3>I completed my Master of Data Science at SNU—many thanks to my advisor, Professor Sanghack Lee, and all my collaborators!</h3>
+        </div>
+      </li>
+      <li class="record">
+        <time class="record-date" datetime="2026-07">Jul 2026</time>
+        <div class="record-copy"><h3>I gave a spotlight talk on our work at the EIML workshop at ICML 2026!</h3></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
 <section class="band" id="education" aria-labelledby="education-title">
   <div class="shell">
     <h2 id="education-title">Education</h2>
@@ -139,32 +165,6 @@ permalink: /
           <p>Ministry of Food and Drug Safety</p>
           <p>Analyzed Korean cohort multi-omics data using causal inference, uncertainty quantification, and explainability, contributing to a co-first-authored paper on decomposing conformal uncertainty.</p>
         </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section class="band" id="news" aria-labelledby="news-title">
-  <div class="shell">
-    <h2 id="news-title">News</h2>
-    <ol class="records" aria-label="News">
-      <li class="record">
-        <time class="record-date" datetime="2026-09">Sep 2026</time>
-        <div class="record-copy"><h3>Our paper on decomposing conformal uncertainty has been accepted to NeurIPS 2026!</h3></div>
-      </li>
-      <li class="record">
-        <time class="record-date" datetime="2026-09">Sep 2026</time>
-        <div class="record-copy"><h3>I began my Ph.D. in Data Science at Seoul National University.</h3></div>
-      </li>
-      <li class="record">
-        <time class="record-date" datetime="2026-08">Aug 2026</time>
-        <div class="record-copy">
-          <h3>I completed my Master of Data Science at SNU—many thanks to my advisor, Professor Sanghack Lee, and all my collaborators!</h3>
-        </div>
-      </li>
-      <li class="record">
-        <time class="record-date" datetime="2026-07">Jul 2026</time>
-        <div class="record-copy"><h3>I gave a spotlight talk on our work at the EIML workshop at ICML 2026!</h3></div>
       </li>
     </ol>
   </div>
