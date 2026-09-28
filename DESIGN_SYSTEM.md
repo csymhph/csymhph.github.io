@@ -176,7 +176,8 @@ while the name is not yet known: a portrait.
 Contact and profile links, decided by the owner on 2026-08-21:
 
 - **Contact includes email and LinkedIn.** Updated by the owner on 2026-09-28:
-  place LinkedIn beside the email addresses under `Contact`. Keep CV alone
+  place LinkedIn on its own line below the email addresses under `Contact`,
+  with the existing Minima LinkedIn SVG logo beside its text label. Keep CV alone
   beneath the portrait. Both links are repeated in the footer; do not duplicate
   LinkedIn beneath the portrait.
 - No buttons anywhere. That leaves the theme toggle as the only control whose

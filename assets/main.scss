@@ -357,6 +357,15 @@ h3 {
   text-transform: uppercase;
 }
 
+.contact-profile {
+  display: block;
+}
+
+.contact-profile svg {
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+
 .intro-aside {
   flex: 0 0 var(--aside);
   display: grid;

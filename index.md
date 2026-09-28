@@ -16,7 +16,11 @@ permalink: /
       <p class="contact">
         <span class="contact-label">Contact</span>
         {{ site.email | escape }} · {{ site.academic_email | escape }}
-        {% if site.linkedin_url and site.linkedin_url != empty %} · <a href="{{ site.linkedin_url | escape }}">LinkedIn</a>{% endif %}
+        {% if site.linkedin_url and site.linkedin_url != empty %}
+        <span class="contact-profile">
+          <a href="{{ site.linkedin_url | escape }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg> LinkedIn</a>
+        </span>
+        {% endif %}
       </p>
     </div>
     {% if site.portrait and site.portrait != empty %}
