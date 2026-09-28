@@ -15,7 +15,7 @@ completion criteria.
 | M3. Local Writing Studio | Complete | Local drafting, editing, publishing, Git sync, and macOS launch flow working |
 | M4. Production Jekyll redesign | Complete | Production layouts are live; Pages build and desktop/mobile browser checks passed |
 | M4.1. Causal Graph Authoring | In progress | Released as `f476628` and pushed; browser pass part-done with two defects fixed and one open |
-| M4.2. Thesis-driven site rebuild | In progress | Production translation and automated checks complete; manual visual pass and owner-supplied assets remain |
+| M4.2. Thesis-driven site rebuild | In progress | Production translation and automated checks complete; manual visual pass remains |
 | M5. Cloud Writing Studio | Deferred | Move authoring to a private Streamlit Community Cloud app for arbitrary-device access |
 | M6. Integrated release and operations | Not started | Connect the production site, cloud editor, publishing flow, and operating documentation |
 
@@ -201,8 +201,8 @@ Completion criteria:
 ## M4.2. Thesis-driven site rebuild
 
 **Status:** In progress — production translation and automated verification are
-complete; the portrait and CV are connected, while the owner-supplied LinkedIn
-target and a manual browser pass remain
+complete; the portrait, CV, and owner-supplied LinkedIn are connected, while a
+manual browser pass remains
 
 Objective:
 
@@ -347,7 +347,8 @@ restates another.
 
 The owner-supplied portrait was connected on 2026-09-21.
 The current CV PDF was connected on 2026-09-27 using the verified submission copy.
-Gated: the LinkedIn profile URL.
+The owner-supplied LinkedIn profile URL was connected on 2026-09-28 in Contact
+and the footer.
 Rule 5 forbids shipping any of these as a placeholder or a "coming soon", so each
 action stays absent until its target exists.
 
@@ -482,7 +483,7 @@ Completion criteria:
    release side.
 2. Manually review the implemented M4.2 page at the target widths, both
    appearances, keyboard focus, and 200% zoom. The portrait is connected;
-   the CV is connected; supply LinkedIn when ready. Missing targets stay omitted.
+   the CV and LinkedIn are connected. Missing targets stay omitted.
 3. Finish M4.1's manual browser pass and resolve the open reopened-graph display
    defect. Independent of M4.2 — the Studio is authoring tooling, not a public
    surface — so either order works.

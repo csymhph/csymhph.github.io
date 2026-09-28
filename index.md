@@ -16,6 +16,7 @@ permalink: /
       <p class="contact">
         <span class="contact-label">Contact</span>
         {{ site.email | escape }} · {{ site.academic_email | escape }}
+        {% if site.linkedin_url and site.linkedin_url != empty %} · <a href="{{ site.linkedin_url | escape }}">LinkedIn</a>{% endif %}
       </p>
     </div>
     {% if site.portrait and site.portrait != empty %}
@@ -23,11 +24,9 @@ permalink: /
       <div class="portrait">
         <img src="{{ site.portrait | relative_url }}" alt="Portrait of {{ site.title | escape }}" width="200" height="200">
       </div>
-      {% if site.cv_url and site.cv_url != empty or site.linkedin_url and site.linkedin_url != empty %}
+      {% if site.cv_url and site.cv_url != empty %}
       <p class="profile-links">
         {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
-        {% if site.cv_url and site.cv_url != empty and site.linkedin_url and site.linkedin_url != empty %}<span class="separator-mark" aria-hidden="true">·</span>{% endif %}
-        {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}">LinkedIn</a>{% endif %}
       </p>
       {% endif %}
     </aside>

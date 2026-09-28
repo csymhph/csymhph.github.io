@@ -175,11 +175,10 @@ while the name is not yet known: a portrait.
 
 Contact and profile links, decided by the owner on 2026-08-21:
 
-- **Contact and links are two separate things.** `Contact` labels the email
-  address and nothing else — a CV and a LinkedIn profile are not ways to contact
-  someone. The two links sit on their own line below, unlabelled, because `CV`
-  and `LinkedIn` already name themselves and a label over them would add nothing.
-  Both are repeated in the footer.
+- **Contact includes email and LinkedIn.** Updated by the owner on 2026-09-28:
+  place LinkedIn beside the email addresses under `Contact`. Keep CV alone
+  beneath the portrait. Both links are repeated in the footer; do not duplicate
+  LinkedIn beneath the portrait.
 - No buttons anywhere. That leaves the theme toggle as the only control whose
   boundary is its sole indicator — so `--border-control` still matters, for that
   one case.
@@ -375,7 +374,7 @@ top instead of restoring a section fragment.
 ### Home
 
 1. Name, role and affiliation, and the one-sentence claim.
-2. Contact: the labelled email address, with CV and LinkedIn beneath the
+2. Contact: the labelled email addresses and LinkedIn, with CV beneath the
    portrait. See rule 7.
 3. Research interests as short structured support for the claim — not in place
    of it.

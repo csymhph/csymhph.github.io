@@ -11,7 +11,7 @@ job: Causality Lab, Graduate School of Data Science, Seoul National University
 location: Seoul, Republic of Korea
 portrait: "/assets/images/Sangyeon_photo1.jpeg"
 cv_url: "/assets/files/SangyeonCho_CV.pdf"
-linkedin_url: ""
+linkedin_url: "https://www.linkedin.com/in/sangyeon-cho-5570682a3/"
 research_interests:
   - Causal Inference
   - Uncertainty Quantification
