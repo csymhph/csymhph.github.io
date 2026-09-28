@@ -19,7 +19,7 @@ permalink: /
         {{ site.email | escape }} · {{ site.academic_email | escape }}
         {% if site.linkedin_url and site.linkedin_url != empty %}
         <span class="contact-links">
-          {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}" aria-label="LinkedIn profile"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg></a>{% endif %}
+          {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}" aria-label="LinkedIn profile"><svg width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg></a>{% endif %}
         </span>
         {% endif %}
       </p>
@@ -49,35 +49,35 @@ permalink: /
         <span class="record-date">NeurIPS 2026</span>
         <div class="record-copy">
           <h3>Decomposing Conformal Uncertainty: Calibration- and Instance-Driven Feature Attribution</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee† · Conference on Neural Information Processing Systems (NeurIPS), 2026</p>
+          <p><strong>Sangyeon Cho</strong>*, Minyoung Cho*, Jungsoo Kim*, Sujeong Oh, and Sanghack Lee† · Conference on Neural Information Processing Systems (NeurIPS), 2026</p>
         </div>
       </li>
       <li class="record">
         <span class="record-date">ICML 2026 (WS)</span>
         <div class="record-copy">
           <h3>A Tale of Two Uncertainties: Global–Local Attribution for Conformal Prediction</h3>
-          <p>Sangyeon Cho*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
+          <p><strong>Sangyeon Cho</strong>*, Minyoung Cho*, Jungsoo Kim*, and Sanghack Lee† · 2nd Workshop on Epistemic Intelligence in Machine Learning (EIML), non-archival · Spotlight talk</p>
         </div>
       </li>
       <li class="record">
         <span class="record-date">Under review</span>
         <div class="record-copy">
           <h3>OPERA-S: Deterministic Tail Safety in Ensemble Off-Policy Evaluation</h3>
-          <p>Hyunwoo Kim, Gyeongchan Han, Bogeun Kim, Serjin Kim, Sangyeon Cho, Junha Ham, Jaehyeok Shin, and Sanghack Lee†</p>
+          <p>Hyunwoo Kim, Gyeongchan Han, Bogeun Kim, Serjin Kim, <strong>Sangyeon Cho</strong>, Junha Ham, Jaehyeok Shin, and Sanghack Lee†</p>
         </div>
       </li>
       <li class="record">
         <span class="record-date">In progress</span>
         <div class="record-copy">
           <h3>Conformal Meta-learner for Individual Treatment Effects under Unmeasured Confounding</h3>
-          <p>Jaeho Jeong, Sangyeon Cho, Ji Won Bae, and Sanghack Lee†</p>
+          <p>Jaeho Jeong, <strong>Sangyeon Cho</strong>, Ji Won Bae, and Sanghack Lee†</p>
         </div>
       </li>
       <li class="record">
         <span class="record-date">Master’s thesis</span>
         <div class="record-copy">
           <h3>Conformal Prediction for Individual Treatment Effects under Time-Varying Treatment Strategies</h3>
-          <p>Sangyeon Cho · Seoul National University, 2026</p>
+          <p><strong>Sangyeon Cho</strong> · Seoul National University, 2026</p>
         </div>
       </li>
     </ol>
@@ -108,7 +108,7 @@ permalink: /
         <div class="record-copy">
           <h3>Advancing Credit Decision Making</h3>
           <p>Industry–academia collaboration, AFINIT</p>
-          <p>Led the project and contributed to methodology and experiments. Outputs include the OPERA-S manuscript and Korean and corresponding PCT patent applications, with contributions as a co-inventor.</p>
+          <p>Led the project team and contributed to methodology and experiments. Outputs include the OPERA-S manuscript and Korean and corresponding PCT patent applications, with contributions as a co-inventor.</p>
         </div>
       </li>
       <li class="record">
