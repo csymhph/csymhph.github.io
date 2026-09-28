@@ -176,9 +176,10 @@ while the name is not yet known: a portrait.
 Contact and profile links, decided by the owner on 2026-08-21:
 
 - **Contact includes email and LinkedIn.** Updated by the owner on 2026-09-28:
-  keep the email addresses on one row under `Contact`, then group the CV text
-  link and icon-only LinkedIn link together below. Use the existing Minima
-  LinkedIn SVG with an accessible link label. No links beneath the portrait.
+  keep the email addresses on one row under `Contact`, then the icon-only
+  LinkedIn link below. Put the inline `[CV]` link at the end of the introduction
+  paragraph. Use the existing Minima LinkedIn SVG with an accessible link label.
+  No links beneath the portrait.
   Both links remain repeated as text links in the footer.
 - No buttons anywhere. That leaves the theme toggle as the only control whose
   boundary is its sole indicator — so `--border-control` still matters, for that
@@ -375,8 +376,8 @@ top instead of restoring a section fragment.
 ### Home
 
 1. Name, role and affiliation, and the one-sentence claim.
-2. Contact: the labelled email addresses, with CV and the LinkedIn icon grouped
-   below them. The portrait has no separate links. See rule 7.
+2. Contact: the labelled email addresses, with the LinkedIn icon below them.
+   CV ends the introduction paragraph; the portrait has no links. See rule 7.
 3. Research interests as short structured support for the claim — not in place
    of it.
 4. Works: the full list of papers, preprints, and the thesis.
@@ -488,17 +489,17 @@ Failing any of these is a defect. Passing all of them is not success; criteria
 
 ## Open decisions
 
-### The claim sentence — updated 2026-09-25
+### The claim sentence — updated 2026-09-28
 
 Superseded 2026-08-21. Three earlier candidates — trust-centred,
 decision-centred, interpretation-centred — were discarded once the owner stated
 the actual through-line: the interest is **decision-making**, with an emphasis
 on reliable use in complex real-world settings.
 
-Current owner-approved wording (2026-09-25):
+Current owner-approved wording (2026-09-28):
 
-> I am interested in how machine learning and causal understanding can inform
-> real-world decision-making.
+> I am interested in how machine learning and causal understanding can help
+> practitioners address real-world decision-making problems.
 
 The sentence is deliberately broader than policy alone. The three research
 areas below explain what reliable support requires rather than turning the

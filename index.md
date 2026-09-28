@@ -12,13 +12,13 @@ permalink: /
         <a href="https://gsds.snu.ac.kr/">Seoul National University</a>, advised by
         <a href="https://www.sanghacklee.me/">Professor Sanghack Lee</a> in the Causality Lab.
         I am interested in <strong>{{ site.claim | remove_first: 'I am interested in ' | escape }}</strong>
+        {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">[CV]</a>{% endif %}
       </p>
       <p class="contact">
         <span class="contact-label">Contact</span>
         {{ site.email | escape }} · {{ site.academic_email | escape }}
-        {% if site.cv_url and site.cv_url != empty or site.linkedin_url and site.linkedin_url != empty %}
+        {% if site.linkedin_url and site.linkedin_url != empty %}
         <span class="contact-links">
-          {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
           {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}" aria-label="LinkedIn profile"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg></a>{% endif %}
         </span>
         {% endif %}
