@@ -2,6 +2,13 @@
 
 ## Status and scope
 
+Latest owner decision (2026-09-28): the introduction states the current doctoral
+affiliation/advisor and prior SNU master's and bachelor's degrees, ending with
+`[CV]`. The Research interests section contains the current CV's research prose,
+followed by `Keywords:` and the existing six keywords. This supersedes the older
+claim-first and keyword-only directions below. Title and SEO description remain
+independent and unchanged; the unused `claim` config field is removed.
+
 This document is the design authority for the public Jekyll site. Every rule
 below is derived from the thesis in the next section, or from the survey of
 comparable sites recorded further down. A rule with no derivation does not

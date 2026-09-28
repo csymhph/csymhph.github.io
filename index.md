@@ -9,9 +9,9 @@ permalink: /
       <h1 id="intro-title">{{ site.title | escape }}</h1>
       <p class="role">
         I am a Ph.D. student in Data Science at
-        <a href="https://gsds.snu.ac.kr/">Seoul National University</a>, advised by
-        <a href="https://www.sanghacklee.me/">Professor Sanghack Lee</a> in the Causality Lab.
-        I am interested in <strong>{{ site.claim | remove_first: 'I am interested in ' | escape }}</strong>
+        <a href="https://gsds.snu.ac.kr/">Seoul National University</a> (SNU), advised by
+        <a href="https://www.sanghacklee.me/">Prof. Sanghack Lee</a> in the Causality Lab.
+        I received my master’s degree in Data Science and my bachelor’s degree in Economics from SNU.
         {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">[CV]</a>{% endif %}
       </p>
       <p class="contact">
@@ -37,7 +37,8 @@ permalink: /
 <section class="band" id="research-interests" aria-labelledby="research-interests-title">
   <div class="shell">
     <h2 id="research-interests-title">Research interests</h2>
-    <p>{{ site.research_interests | join: ' · ' | escape }}</p>
+    <p>My research interests lie in causal inference and uncertainty quantification for reliable decision-making. I am particularly interested in clarifying the assumptions under which causal conclusions are justified, characterizing uncertainty in causal estimates and predictions, and determining when the available evidence supports action, deferral, or further information. Ultimately, I aim to help bridge the gap between theory and real-world applications in domains such as epidemiology, finance, and public policy.</p>
+    <p>Keywords: {{ site.research_interests | join: ' · ' | escape }}</p>
   </div>
 </section>
 
