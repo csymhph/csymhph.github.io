@@ -38,7 +38,7 @@ permalink: /
   <div class="shell">
     <h2 id="research-interests-title">Research interests</h2>
     <p>My research interests lie in causal inference and uncertainty quantification for reliable decision-making. I am particularly interested in clarifying the assumptions under which causal conclusions are justified, characterizing uncertainty in causal estimates and predictions, and determining when the available evidence supports action, deferral, or further information. Ultimately, I aim to help bridge the gap between theory and real-world applications in domains such as epidemiology, finance, and public policy.</p>
-    <p>Keywords: {{ site.research_interests | join: ' · ' | escape }}</p>
+    <p>Keywords: {{ site.research_interests | join: ', ' | escape }}</p>
   </div>
 </section>
 
