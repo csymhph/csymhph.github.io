@@ -342,8 +342,7 @@ h3 {
   color: var(--accent-hover);
 }
 
-.contact,
-.profile-links {
+.contact {
   margin: 0;
 }
 
@@ -357,13 +356,15 @@ h3 {
   text-transform: uppercase;
 }
 
-.contact-profile {
-  display: block;
+.contact-links {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
 }
 
-.contact-profile svg {
+.contact-links svg {
+  display: block;
   fill: currentColor;
-  vertical-align: -0.125em;
 }
 
 .intro-aside {

@@ -176,10 +176,10 @@ while the name is not yet known: a portrait.
 Contact and profile links, decided by the owner on 2026-08-21:
 
 - **Contact includes email and LinkedIn.** Updated by the owner on 2026-09-28:
-  place LinkedIn on its own line below the email addresses under `Contact`,
-  with the existing Minima LinkedIn SVG logo beside its text label. Keep CV alone
-  beneath the portrait. Both links are repeated in the footer; do not duplicate
-  LinkedIn beneath the portrait.
+  keep the email addresses on one row under `Contact`, then group the CV text
+  link and icon-only LinkedIn link together below. Use the existing Minima
+  LinkedIn SVG with an accessible link label. No links beneath the portrait.
+  Both links remain repeated as text links in the footer.
 - No buttons anywhere. That leaves the theme toggle as the only control whose
   boundary is its sole indicator — so `--border-control` still matters, for that
   one case.
@@ -375,8 +375,8 @@ top instead of restoring a section fragment.
 ### Home
 
 1. Name, role and affiliation, and the one-sentence claim.
-2. Contact: the labelled email addresses and LinkedIn, with CV beneath the
-   portrait. See rule 7.
+2. Contact: the labelled email addresses, with CV and the LinkedIn icon grouped
+   below them. The portrait has no separate links. See rule 7.
 3. Research interests as short structured support for the claim — not in place
    of it.
 4. Works: the full list of papers, preprints, and the thesis.

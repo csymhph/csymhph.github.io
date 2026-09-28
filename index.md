@@ -16,9 +16,10 @@ permalink: /
       <p class="contact">
         <span class="contact-label">Contact</span>
         {{ site.email | escape }} · {{ site.academic_email | escape }}
-        {% if site.linkedin_url and site.linkedin_url != empty %}
-        <span class="contact-profile">
-          <a href="{{ site.linkedin_url | escape }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg> LinkedIn</a>
+        {% if site.cv_url and site.cv_url != empty or site.linkedin_url and site.linkedin_url != empty %}
+        <span class="contact-links">
+          {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
+          {% if site.linkedin_url and site.linkedin_url != empty %}<a href="{{ site.linkedin_url | escape }}" aria-label="LinkedIn profile"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use></svg></a>{% endif %}
         </span>
         {% endif %}
       </p>
@@ -28,11 +29,6 @@ permalink: /
       <div class="portrait">
         <img src="{{ site.portrait | relative_url }}" alt="Portrait of {{ site.title | escape }}" width="200" height="200">
       </div>
-      {% if site.cv_url and site.cv_url != empty %}
-      <p class="profile-links">
-        {% if site.cv_url and site.cv_url != empty %}<a href="{{ site.cv_url | escape }}">CV</a>{% endif %}
-      </p>
-      {% endif %}
     </aside>
     {% endif %}
   </div>
