@@ -186,8 +186,8 @@ while the name is not yet known: a portrait.
 
 Contact and profile links, decided by the owner on 2026-08-21:
 
-- **Contact includes email and LinkedIn.** Updated by the owner on 2026-09-28:
-  keep the email addresses on one row under `Contact`, then the icon-only
+- **Contact includes email and LinkedIn.** Updated by the owner on 2026-10-01:
+  put each email address on its own row under `Contact`, then the icon-only
   LinkedIn link below. Put the inline `[CV]` link at the end of the introduction
   paragraph. Use the existing Minima LinkedIn SVG with an accessible link label.
   No links beneath the portrait.
