@@ -325,7 +325,8 @@ h3 {
 
 .role {
   margin: 0 0 var(--s6);
-  color: var(--muted);
+  color: var(--text);
+  font-size: calc(var(--type-body) + 1pt);
 }
 
 .role strong {
@@ -358,6 +359,8 @@ h3 {
 
 .contact-email {
   display: block;
+  color: var(--muted);
+  font-size: var(--type-meta);
 }
 
 .contact-links {

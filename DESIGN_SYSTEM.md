@@ -262,8 +262,9 @@ may not.
 - Body stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
   Arial, sans-serif`. Code stack: `ui-monospace, SFMono-Regular, Menlo, Consolas,
   monospace`. No self-hosted or remote fonts.
-- **Exactly five type roles, each a token. Every `font-size` in the stylesheet
-  resolves to one of them.** Values verified at a 1.21–1.29 ratio:
+- **Five base type roles, each a token.** The introduction paragraph has the
+  owner's 2026-10-01 exception of `1pt` above body size; every other `font-size`
+  in the stylesheet resolves to a base token. Values verified at a 1.21–1.29 ratio:
 
   | Token | rem | px | Role |
   |---|---|---|---|
@@ -482,8 +483,9 @@ These are the tests the design is trying to pass. All must hold.
 5. With CSS disabled the page loses its beauty but loses no information and no
    hierarchy.
 6. Adding a news item, a record, or a publication is a one-file Markdown edit.
-7. Every `font-size` in the stylesheet resolves to one of the five type tokens,
-   and no rendered heading exceeds 36px.
+7. Every `font-size` in the stylesheet resolves to one of the five base type
+   tokens except the introduction's `1pt` offset, and no rendered heading
+   exceeds 36px.
 
 ### Floors — necessary, not sufficient
 
