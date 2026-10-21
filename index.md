@@ -110,7 +110,7 @@ permalink: /
       <li class="record">
         <span class="record-date">Under review</span>
         <div class="record-copy">
-          <h3>OPERA-S: Deterministic Tail Safety in Ensemble Off-Policy Evaluation</h3>
+          <h3>OPERA-S: Preventing Error Amplification in Ensemble Off-Policy Evaluation</h3>
           <p>Hyunwoo Kim, Gyeongchan Han, Bogeun Kim, Serjin Kim, <strong>Sangyeon Cho</strong>, Junha Ham, Jaehyeok Shin, and Sanghack Lee†</p>
         </div>
       </li>
